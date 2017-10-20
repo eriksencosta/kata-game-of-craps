@@ -10,6 +10,8 @@ public class PlayCrapsTest {
         final int numGames = 1;
         PlayCraps playing = new PlayCraps();
 
-        // GameStatistics statistics = playing.play(numGames);
+         GameStatistics statistics = playing.play(numGames);
     }
+
+
 }
