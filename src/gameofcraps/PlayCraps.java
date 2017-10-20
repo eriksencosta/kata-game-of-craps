@@ -9,4 +9,8 @@ public class PlayCraps {
         System.out.println("Enter number of games: ");
         numGames = Integer.parseInt(args[0]);
     }
+
+    public GameStatistics play(int numGames){
+        return null;
+    }
 }
