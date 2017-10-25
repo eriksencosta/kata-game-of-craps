@@ -1,5 +1,7 @@
 package gameofcraps;
 
+import java.security.InvalidParameterException;
+
 public class GameStatistics {
 
     public final int wins;
@@ -10,7 +12,12 @@ public class GameStatistics {
     public final int losesInComingOutRoll;
 
     public GameStatistics(int wins, int losses, int longestPlayedGame, int rollsMade, int winsInComingOutRoll,
-                          int losesInComingOutRoll){
+                          int losesInComingOutRoll) {
+
+        if (wins < 0) {
+            throw new InvalidParameterException("Wins cannot be negative");
+        }
+
         this.wins = wins;
         this.losses = losses;
         this.longestPlayedGame = longestPlayedGame;
