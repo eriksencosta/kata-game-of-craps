@@ -1,7 +1,6 @@
 package gameofcraps;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
@@ -9,73 +8,65 @@ import static org.junit.Assert.assertEquals;
  * Created by nayvir on 10/19/17.
  */
 public class GameStatisticsTest {
-    int wins;
-    int losses;
-    int numberOfGames;
-    int totalRolls;
-    int longestPlay;
-    int numberOfWinsFirst;
-    int numberOfLossesFirst;
-    int averageRolls;
+    private static final int WINS = 3;
+    private static final int LOSSES = 4;
+    private static final int NUMBERS_GAMES = WINS + LOSSES;
+    private static final int TOTAL_ROLLS = 20;
+    private static final int LONGEST_PLAY = 79;
+    private static final int NUMBERS_WINS_FIRST_ROLL = 1;
+    private static final int NUMBERS_LOSSES_FIRST_ROLL = 0;
+    private static final int AVERAGE_ROLL = 15;
     GameStatistics gameStatistics;
 
     @Before
     public  void setup(){
-        wins = 3;
-        losses = 4;
-        numberOfGames = wins + losses;
-        totalRolls = 20;
-        longestPlay = 79;
-        numberOfWinsFirst = 1;
-        numberOfLossesFirst = 0;
-        averageRolls = 15;
-        gameStatistics = new GameStatistics(wins, losses, totalRolls, longestPlay, numberOfWinsFirst, numberOfLossesFirst, averageRolls);
+        gameStatistics = new GameStatistics(WINS, LOSSES, TOTAL_ROLLS, LONGEST_PLAY, NUMBERS_WINS_FIRST_ROLL, NUMBERS_LOSSES_FIRST_ROLL, AVERAGE_ROLL);
     }
 
     @Test
     public void createGameStatisticsResultsTotalNumberOfGames() {
-        assertEquals(gameStatistics.numberOfGames, (wins+losses));
+        assertEquals(gameStatistics.numberOfGames, (WINS + LOSSES));
 
     }
 
     @Test
     public void createGameStatisticsResultsProbabilityOfWin(){
-        assertEquals(gameStatistics.probabilityWin, (wins / numberOfGames), 0);
+        assertEquals(gameStatistics.probabilityWin, (WINS / NUMBERS_GAMES), 0);
     }
 
     @Test
     public void createGameStatisticsResultsTotalRolls(){
-        assertEquals(gameStatistics.totalRolls,totalRolls);
+        assertEquals(gameStatistics.totalRolls, TOTAL_ROLLS);
     }
 
     @Test
     public void createGameStatisticsResultsLongestGame(){
-        assertEquals(gameStatistics.longestPlay,longestPlay);
+        assertEquals(gameStatistics.longestPlay, LONGEST_PLAY);
     }
 
     @Test
     public void createGameStatisticsResultsNumberOfWinsFirst(){
-        assertEquals(gameStatistics.numberOfWinsFirst,numberOfWinsFirst);
+        assertEquals(gameStatistics.numberOfWinsFirst, NUMBERS_WINS_FIRST_ROLL);
     }
 
     @Test
     public void createGameStatisticsResultsNumberOfLossesFirst(){
-        assertEquals(gameStatistics.numberOfLossesFirst,numberOfLossesFirst);
+        assertEquals(gameStatistics.numberOfLossesFirst, NUMBERS_LOSSES_FIRST_ROLL);
     }
 
     @Test
     public void createGameStatisticsResultsProbabilityOfWinningAtFirstRoll(){
-        assertEquals(gameStatistics.probabilityOfWinAtFirstRoll, numberOfWinsFirst /  numberOfGames, 0);
+        assertEquals(gameStatistics.probabilityOfWinAtFirstRoll, NUMBERS_WINS_FIRST_ROLL / NUMBERS_GAMES, 0);
     }
 
     @Test
     public void createGameStatisticsResultsProbabilityOfLosingAtFirstRoll(){
-        assertEquals(gameStatistics.probabilityOfLosingAtFirstRoll, numberOfLossesFirst /  numberOfGames, 0);
+        assertEquals(gameStatistics.probabilityOfLosingAtFirstRoll, NUMBERS_LOSSES_FIRST_ROLL / NUMBERS_GAMES, 0);
     }
 
     @Test
     public void createGameStatisticsResultsAverageNumberOfRollsPerGame(){
-        assertEquals(gameStatistics.averageNumberOfRollsPerGame, averageRolls / numberOfGames, 2.0 );
+        assertEquals(gameStatistics.averageNumberOfRollsPerGame, AVERAGE_ROLL / NUMBERS_GAMES, 2.0 );
     }
 
 
