@@ -56,7 +56,7 @@ public class GameStatisticsTest {
     }
 
     @Test
-    public void calculeteWinningOnComingPutRollProbability() {
+    public void calculateWinningOnComingPutRollProbability() {
         assertThat(gameStatistics.winningOnComingPutRollProbability, closeTo(0.16,0.01));
     }
 
@@ -66,7 +66,7 @@ public class GameStatisticsTest {
     }
 
     @Test
-    public void calculeteLosingOnComingPutRollProbability() {
+    public void calculateLosingOnComingPutRollProbability() {
         assertThat(gameStatistics.losingOnComingPutRollProbability, closeTo(0.06,0.01));
     }
 }
