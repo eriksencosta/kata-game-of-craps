@@ -11,6 +11,6 @@ public class PlayCraps {
     }
 
     public GameStatistics play(int numGames){
-        return new GameStatistics(0, 0, 0,0, 0, 0);
+        return new GameStatistics(1, 1, 1, 1, 1, 1);
     }
 }

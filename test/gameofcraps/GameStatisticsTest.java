@@ -8,17 +8,12 @@ import org.junit.*;
 
 
 public class GameStatisticsTest {
-    private GameStatistics gameStatistics;
+    private GameStatistics gameStatistics = new GameStatistics(GAMES_WON, GAMES_LOST, 5,TOTAL_ROLLS, 5, 2);
 
     private static final int GAMES_WON = 10;
     private static final int GAMES_LOST = 20;
     private static final int GAMES_PLAYED = 30;
     private static final int TOTAL_ROLLS = 60;
-
-    @Before
-    public void createGameStatistics(){
-        gameStatistics = new GameStatistics(GAMES_WON, GAMES_LOST, 5,TOTAL_ROLLS, 5, 2);
-    }
 
     @Test
     public void calculateNumberOfWins() {
@@ -74,4 +69,20 @@ public class GameStatisticsTest {
     public void calculateLosingOnComingPutRollProbability() {
         assertThat(gameStatistics.losingOnComingPutRollProbability, closeTo(0.06,0.01));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void raisesErrorWhenNumberOfGamesIsZero() {
+        new GameStatistics(0, 0, 0, 0, 0, 0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void raisesErrorWhenNunberOfWinsLessThenZero() {
+        new GameStatistics(-5, 2, 0, 0, 0, 0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void raisesErrorWhenNunberOfLosesLessThenZero() {
+        new GameStatistics(2, -5, 0, 0, 0, 0);
+    }
 }
+

@@ -17,7 +17,15 @@ public class GameStatistics {
     public GameStatistics(
             int numWins, int numLoses, int lengthLongestGame, int numTotalRolls,
             int numWinsOnComingOutRoll, int numLosesOnComingOutRoll
-    ) {
+    ) throws IllegalArgumentException {
+
+        if (numWins == 0 && numLoses == 0) {
+            throw new IllegalArgumentException("Number of wins and loses cannot be zero.");
+        }
+        if (numWins < 0 || numLoses < 0 ) {
+            throw new IllegalArgumentException("Number of wins and loses cannot be negative.");
+        }
+
         this.numWins = numWins;
         this.numLoses = numLoses;
         this.numGames = numWins+numLoses;
