@@ -16,14 +16,23 @@ public class GameStatisticsTest {
     int numLoses, numWins, longestPlayedGame, rollsMade, winsInComingOutRoll, losesInComingOutRoll;
     GameStatistics stats;
 
+    private static final int NUM_LOSSES = 10;
+    private static final int NUM_WINS = 10;
+    private static final int LONGEST_PLAYED_GAME = 10;
+    private static final int ROLLS_MADE = 10;
+    private static final int WINS_IN_COMMING_OUT_ROLL = 10;
+    private static final int LOSSES_IN_COMMING_OUT_ROLL = 10;
+
+
+    numLoses = 10;
+    numWins = -10;
+    longestPlayedGame = 34;
+    rollsMade = 150;
+    winsInComingOutRoll = 4;
+    losesInComingOutRoll = 3;
+
     @Before
-    public void createGameStatistics(){
-        numLoses = 10;
-        numWins = 15;
-        longestPlayedGame = 34;
-        rollsMade = 150;
-        winsInComingOutRoll = 4;
-        losesInComingOutRoll = 3;
+    public void createGameStatistics() {
         stats = new GameStatistics(numWins, numLoses, longestPlayedGame, rollsMade, winsInComingOutRoll, losesInComingOutRoll);
     }
 
@@ -87,12 +96,6 @@ public class GameStatisticsTest {
 
     @Test
     public void creatingGameStatisticsThrowsExceptionWhenWinsIsNegativeOnInstantiation() {
-        numLoses = 10;
-        numWins = -10;
-        longestPlayedGame = 34;
-        rollsMade = 150;
-        winsInComingOutRoll = 4;
-        losesInComingOutRoll = 3;
 
         thrown.expect(InvalidParameterException.class);
         thrown.expectMessage("Wins cannot be negative");
