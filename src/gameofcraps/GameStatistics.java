@@ -1,5 +1,7 @@
 package gameofcraps;
 
+import java.util.IllegalFormatException;
+
 /**
  * Created by nayvir on 10/19/17.
  */
@@ -19,7 +21,18 @@ public class GameStatistics {
     public final float probabilityWin;
 
 
-    GameStatistics (int wins, int losses, int totalRolls, int longestPlay, int numberOfWinsFirst, int numberOfLossesFirst, int averageRolls){
+    GameStatistics (int wins, int losses, int totalRolls, int longestPlay, int numberOfWinsFirst, int numberOfLossesFirst, int averageRolls) {
+        if ( wins < 0 )
+            throw new IllegalArgumentException("Negative wins are not allowed");
+
+        if ( losses < 0 )
+            throw new IllegalArgumentException("Negative losses are not allowed");
+
+         if (wins + losses == 0) throw new IllegalArgumentException("The sum of wins and losses must be greater than zero");
+
+        if ( totalRolls < 1 )
+            throw new IllegalArgumentException("totalRolls must be Greater than zero");
+
         this.wins = wins;
         this.losses = losses;
         this.numberOfGames = wins + losses;
@@ -32,6 +45,13 @@ public class GameStatistics {
         this.numberOfLossesFirst = numberOfLossesFirst;
         this.averageRolls = averageRolls;
         this.probabilityWin = wins / numberOfGames;
+
+
+
+
+
     }
+
+
 
 }
