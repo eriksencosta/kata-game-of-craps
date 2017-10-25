@@ -1,11 +1,14 @@
 package gameofcraps;
 
-//import org.junit.Test;
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.number.IsCloseTo.*;
+import static org.hamcrest.Matchers.*;
+
+import org.junit.Rule;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+import java.security.InvalidParameterException;
 
 import static org.junit.Assert.*;
 
@@ -79,5 +82,23 @@ public class GameStatisticsTest {
         assertThat(stats.losesProbabilityInComingOutRoll(), closeTo(probability, 0.00005));
     }
 
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+    @Test
+    public void creatingGameStatisticsThrowsExceptionWhenWinsIsNegativeOnInstantiation() {
+        numLoses = 10;
+        numWins = -10;
+        longestPlayedGame = 34;
+        rollsMade = 150;
+        winsInComingOutRoll = 4;
+        losesInComingOutRoll = 3;
+
+        thrown.expect(InvalidParameterException.class);
+        thrown.expectMessage("Wins cannot be negative");
+
+        new GameStatistics(numWins, numLoses, longestPlayedGame, rollsMade, winsInComingOutRoll, losesInComingOutRoll);
+    }
+    
 }
 
