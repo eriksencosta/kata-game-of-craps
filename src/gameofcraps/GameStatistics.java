@@ -3,16 +3,16 @@ package gameofcraps;
 public class GameStatistics {
 
     public final int wins;
-    public final int loses;
+    public final int losses;
     public final int longestPlayedGame;
     public final int rollsMade;
     public final int winsInComingOutRoll;
     public final int losesInComingOutRoll;
 
-    public GameStatistics(int wins, int loses, int longestPlayedGame, int rollsMade, int winsInComingOutRoll,
-        int losesInComingOutRoll){
+    public GameStatistics(int wins, int losses, int longestPlayedGame, int rollsMade, int winsInComingOutRoll,
+                          int losesInComingOutRoll){
         this.wins = wins;
-        this.loses = loses;
+        this.losses = losses;
         this.longestPlayedGame = longestPlayedGame;
         this.rollsMade = rollsMade;
         this.winsInComingOutRoll = winsInComingOutRoll;
@@ -21,7 +21,7 @@ public class GameStatistics {
 
     public int playedGames()
     {
-        return this.wins + this.loses;
+        return this.wins + this.losses;
     }
 
     public double winnerProbability(){
