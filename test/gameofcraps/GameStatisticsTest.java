@@ -10,24 +10,29 @@ import org.junit.*;
 public class GameStatisticsTest {
     private GameStatistics gameStatistics;
 
+    private static final int GAMES_WON = 10;
+    private static final int GAMES_LOST = 20;
+    private static final int GAMES_PLAYED = 30;
+    private static final int TOTAL_ROLLS = 60;
+
     @Before
     public void createGameStatistics(){
-        gameStatistics = new GameStatistics(10, 20, 5,60, 5, 2);
+        gameStatistics = new GameStatistics(GAMES_WON, GAMES_LOST, 5,TOTAL_ROLLS, 5, 2);
     }
 
     @Test
     public void calculateNumberOfWins() {
-        assertThat(gameStatistics.numWins, equalTo(10));
+        assertThat(gameStatistics.numWins, equalTo(GAMES_WON));
     }
 
     @Test
     public void calculateNumberOfLoses() {
-        assertThat(gameStatistics.numLoses, equalTo(20));
+        assertThat(gameStatistics.numLoses, equalTo(GAMES_LOST));
     }
 
     @Test
     public void calculateNumberOfGames(){
-        assertThat(gameStatistics.numGames, equalTo(30));
+        assertThat(gameStatistics.numGames, equalTo(GAMES_PLAYED));
     }
 
     @Test
@@ -42,7 +47,7 @@ public class GameStatisticsTest {
 
     @Test
     public void calculateNumberOfTotalRolls() {
-        assertThat(gameStatistics.numTotalRolls, equalTo(60));
+        assertThat(gameStatistics.numTotalRolls, equalTo(TOTAL_ROLLS));
     }
 
     @Test
