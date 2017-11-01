@@ -13,17 +13,27 @@ public class GameStatistics {
     public final double winningOnComingPutRollProbability;
     public final int numLosesOnComingOutRoll;
     public final double losingOnComingPutRollProbability;
+    public final static String NUMBER_WINS_NOT_ZERO = "Number of wins cannot be zero";
+    public final static String NUMBER_LOSES_NOT_ZERO = "Number of loses cannot be zero";
+    public final static String NUMBER_WINS_NOT_NEGATIVE = "Number of wins cannot be negative";
+    public final static String NUMBER_LOSES_NOT_NEGATIVE = "Number of loses cannot be negative";
 
     public GameStatistics(
             int numWins, int numLoses, int lengthLongestGame, int numTotalRolls,
             int numWinsOnComingOutRoll, int numLosesOnComingOutRoll
     ) throws IllegalArgumentException {
 
-        if (numWins == 0 && numLoses == 0) {
-            throw new IllegalArgumentException("Number of wins and loses cannot be zero.");
+        if (numWins == 0) {
+            throw new IllegalArgumentException(NUMBER_WINS_NOT_ZERO);
         }
-        if (numWins < 0 || numLoses < 0 ) {
-            throw new IllegalArgumentException("Number of wins and loses cannot be negative.");
+        if(numLoses == 0){
+            throw new IllegalArgumentException(NUMBER_LOSES_NOT_ZERO);
+        }
+        if (numWins < 0 ) {
+            throw new IllegalArgumentException(NUMBER_WINS_NOT_NEGATIVE);
+        }
+        if(numLoses < 0 ){
+            throw new IllegalArgumentException(NUMBER_LOSES_NOT_NEGATIVE);
         }
 
         this.numWins = numWins;

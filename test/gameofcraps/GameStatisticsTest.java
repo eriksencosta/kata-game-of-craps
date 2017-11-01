@@ -1,14 +1,13 @@
 package gameofcraps;
 
+import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.number.IsCloseTo.*;
 
 import org.junit.*;
 
-
 public class GameStatisticsTest {
-    private GameStatistics gameStatistics = new GameStatistics(GAMES_WON, GAMES_LOST, 5,TOTAL_ROLLS, 5, 2);
+    private GameStatistics gameStatistics = new GameStatistics(GAMES_WON, GAMES_LOST, 5, TOTAL_ROLLS, 5, 2);
 
     private static final int GAMES_WON = 10;
     private static final int GAMES_LOST = 20;
@@ -26,12 +25,12 @@ public class GameStatisticsTest {
     }
 
     @Test
-    public void calculateNumberOfGames(){
+    public void calculateNumberOfGames() {
         assertThat(gameStatistics.numGames, equalTo(GAMES_PLAYED));
     }
 
     @Test
-    public void calculateLengthOfLongestGame(){
+    public void calculateLengthOfLongestGame() {
         assertThat(gameStatistics.lengthLongestGame, equalTo(5));
     }
 
@@ -47,7 +46,7 @@ public class GameStatisticsTest {
 
     @Test
     public void calculateAverageNumRoll() {
-        assertThat(gameStatistics.averageNumRoll, closeTo(2,0.05));
+        assertThat(gameStatistics.averageNumRoll, closeTo(2, 0.05));
     }
 
     @Test
@@ -57,32 +56,46 @@ public class GameStatisticsTest {
 
     @Test
     public void calculateWinningOnComingPutRollProbability() {
-        assertThat(gameStatistics.winningOnComingPutRollProbability, closeTo(0.16,0.01));
+        assertThat(gameStatistics.winningOnComingPutRollProbability, closeTo(0.16, 0.01));
     }
 
     @Test
-    public void calculateNumLosesOnComingOutRoll(){
+    public void calculateNumLosesOnComingOutRoll() {
         assertThat(gameStatistics.numLosesOnComingOutRoll, equalTo(2));
     }
 
     @Test
     public void calculateLosingOnComingPutRollProbability() {
-        assertThat(gameStatistics.losingOnComingPutRollProbability, closeTo(0.06,0.01));
+        assertThat(gameStatistics.losingOnComingPutRollProbability, closeTo(0.06, 0.01));
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void raisesErrorWhenNumberOfGamesIsZero() {
-        new GameStatistics(0, 0, 0, 0, 0, 0);
+    private void assertGameStatisticsException(int numWins, int numLoses, String expectedErrorMessage) {
+        try {
+            new GameStatistics(numWins, numLoses, 0, 0, 0, 0);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertThat(e.getMessage(), equalTo(expectedErrorMessage));
+        }
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void raisesErrorWhenNunberOfWinsLessThenZero() {
-        new GameStatistics(-5, 2, 0, 0, 0, 0);
+    @Test
+    public void raisesErrorWhenNumberOfWinsIsZero() {
+        assertGameStatisticsException(0, 1, GameStatistics.NUMBER_WINS_NOT_ZERO);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void raisesErrorWhenNunberOfLosesLessThenZero() {
-        new GameStatistics(2, -5, 0, 0, 0, 0);
+    @Test
+    public void raisesErrorWhenNumberOfWinsLessThenZero() {
+        assertGameStatisticsException(-1, 1, GameStatistics.NUMBER_WINS_NOT_NEGATIVE);
+    }
+
+    @Test
+    public void raisesErrorWhenNumberOfLossesIsZero() {
+        assertGameStatisticsException(1, 0, GameStatistics.NUMBER_LOSES_NOT_ZERO);
+    }
+
+    @Test
+    public void raisesErrorWhenNumberOfLosesLessThenZero() {
+        assertGameStatisticsException(1, -1, GameStatistics.NUMBER_LOSES_NOT_NEGATIVE);
     }
 }
 
