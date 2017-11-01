@@ -1,8 +1,8 @@
 package gameofcraps;
 
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -23,7 +23,7 @@ public class GameStatisticsTest {
     GameStatistics gameStatistics;
 
     @Before
-    public  void setup() {
+    public void setup() {
         gameStatistics = new GameStatistics(WINS, LOSSES, TOTAL_ROLLS, LONGEST_PLAY, NUMBERS_WINS_FIRST_ROLL, NUMBERS_LOSSES_FIRST_ROLL, AVERAGE_ROLL);
     }
 
@@ -39,12 +39,12 @@ public class GameStatisticsTest {
     }
 
     @Test
-    public void createGameStatisticsResultsTotalRolls(){
+    public void createGameStatisticsResultsTotalRolls() {
         assertEquals(gameStatistics.totalRolls, TOTAL_ROLLS);
     }
 
     @Test
-    public void createGameStatisticsResultsLongestGame(){
+    public void createGameStatisticsResultsLongestGame() {
         assertEquals(gameStatistics.longestPlay, LONGEST_PLAY);
     }
 
@@ -70,7 +70,7 @@ public class GameStatisticsTest {
 
     @Test
     public void createGameStatisticsResultsAverageNumberOfRollsPerGame() {
-        assertEquals(gameStatistics.averageNumberOfRollsPerGame, AVERAGE_ROLL / NUMBERS_GAMES, 2.0 );
+        assertEquals(gameStatistics.averageNumberOfRollsPerGame, AVERAGE_ROLL / NUMBERS_GAMES, 2.0);
     }
 
     @Test
