@@ -4,3 +4,5 @@ out/
 .gradle/
 .idea/uiDesigner.xml
 .idea/workspace.xml
+.idea/*
+lib/hamcrest-all-1.3.jar
