@@ -18,6 +18,10 @@ public class GameStatistics {
             throw new IllegalArgumentException("Wins cannot be negative");
         }
 
+        if (losses < 0) {
+            throw new IllegalArgumentException("Losses cannot be negative");
+        }
+
         this.wins = wins;
         this.losses = losses;
         this.longestPlayedGame = longestPlayedGame;
