@@ -1,6 +1,6 @@
 package gameofcraps;
 
-import java.security.InvalidParameterException;
+import java.lang.IllegalArgumentException;
 
 public class GameStatistics {
 
@@ -9,13 +9,13 @@ public class GameStatistics {
     public final int longestPlayedGame;
     public final int rollsMade;
     public final int winsInComingOutRoll;
-    public final int losesInComingOutRoll;
+    public final int lossesInComingOutRoll;
 
     public GameStatistics(int wins, int losses, int longestPlayedGame, int rollsMade, int winsInComingOutRoll,
-                          int losesInComingOutRoll) {
+                          int lossesInComingOutRoll) {
 
         if (wins < 0) {
-            throw new InvalidParameterException("Wins cannot be negative");
+            throw new IllegalArgumentException("Wins cannot be negative");
         }
 
         this.wins = wins;
@@ -23,7 +23,7 @@ public class GameStatistics {
         this.longestPlayedGame = longestPlayedGame;
         this.rollsMade = rollsMade;
         this.winsInComingOutRoll = winsInComingOutRoll;
-        this.losesInComingOutRoll = losesInComingOutRoll;
+        this.lossesInComingOutRoll = lossesInComingOutRoll;
     }
 
     public int playedGames()
@@ -31,7 +31,7 @@ public class GameStatistics {
         return this.wins + this.losses;
     }
 
-    public double winnerProbability(){
+    public double winningProbability(){
         return (double) this.wins / this.playedGames();
     }
 
@@ -39,12 +39,12 @@ public class GameStatistics {
         return (double) this.rollsMade / this.playedGames();
     }
 
-    public double winnerProbabilityInComingOutRoll(){
+    public double winningProbabilityInComingOutRoll(){
         return (double) this.winsInComingOutRoll / this.playedGames();
     }
 
-    public double losesProbabilityInComingOutRoll(){
-        return (double) this.losesInComingOutRoll / this.playedGames();
+    public double lossesProbabilityInComingOutRoll(){
+        return (double) this.lossesInComingOutRoll / this.playedGames();
     }
 
 }
