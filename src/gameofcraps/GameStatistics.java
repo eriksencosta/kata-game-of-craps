@@ -22,6 +22,30 @@ public class GameStatistics {
             throw new IllegalArgumentException("Losses cannot be negative");
         }
 
+        if (winsInComingOutRoll < 0) {
+            throw new IllegalArgumentException("Wins in coming out roll cannot be negative");
+        }
+
+        if (lossesInComingOutRoll < 0) {
+            throw new IllegalArgumentException("Losses in coming out roll cannot be negative");
+        }
+
+        if (wins == 0 && losses == 0) {
+            throw new IllegalArgumentException("Losses and wins are equal to zero simultaneously");
+        }
+
+        if (longestPlayedGame < 1) {
+            throw new IllegalArgumentException("Longest play must be at least one");
+        }
+
+        if (winsInComingOutRoll > wins){
+            throw new IllegalArgumentException("WinsInComingOutRolls must be minor than wins");
+        }
+
+        if (lossesInComingOutRoll > losses){
+            throw  new IllegalArgumentException("LossesInComingOutRolls must be minor than losses");
+        }
+
         this.wins = wins;
         this.losses = losses;
         this.longestPlayedGame = longestPlayedGame;
