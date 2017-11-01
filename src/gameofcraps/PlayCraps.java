@@ -10,7 +10,7 @@ public class PlayCraps {
         numGames = Integer.parseInt(args[0]);
     }
 
-    public GameStatistics play(int numGames){
+    public GameStatistics play(int numGames) {
         return new GameStatistics(1, 1, 1, 1, 1, 1);
     }
 }

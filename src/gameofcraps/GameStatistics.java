@@ -2,16 +2,16 @@ package gameofcraps;
 
 public class GameStatistics {
 
-    public final int numWins;
-    public final int numLoses;
-    public final int numGames;
-    public final int lengthLongestGame;
+    public final int numberOfWins;
+    public final int numberOfLosses;
+    public final int numberOfGames;
+    public final int lengthOfLongestGame;
     public final double winningProbability;
-    public final int numTotalRolls;
-    public final double averageNumRoll;
-    public final int numWinsOnComingOutRoll;
+    public final int numberOfTotalRolls;
+    public final double averageNumberOfRolls;
+    public final int numberOfWinsOnComingOutRoll;
     public final double winningOnComingPutRollProbability;
-    public final int numLosesOnComingOutRoll;
+    public final int numberOfLosesOnComingOutRoll;
     public final double losingOnComingPutRollProbability;
     public final static String NUMBER_WINS_NOT_ZERO = "Number of wins cannot be zero";
     public final static String NUMBER_LOSES_NOT_ZERO = "Number of loses cannot be zero";
@@ -19,33 +19,33 @@ public class GameStatistics {
     public final static String NUMBER_LOSES_NOT_NEGATIVE = "Number of loses cannot be negative";
 
     public GameStatistics(
-            int numWins, int numLoses, int lengthLongestGame, int numTotalRolls,
-            int numWinsOnComingOutRoll, int numLosesOnComingOutRoll
+            int numberOfWins, int numberOfLosses, int lengthOfLongestGame, int numberOfTotalRolls,
+            int numberOfWinsOnComingOutRoll, int numberOfLosesOnComingOutRoll
     ) throws IllegalArgumentException {
 
-        if (numWins == 0) {
+        if (numberOfWins == 0) {
             throw new IllegalArgumentException(NUMBER_WINS_NOT_ZERO);
         }
-        if(numLoses == 0){
+        if (numberOfLosses == 0) {
             throw new IllegalArgumentException(NUMBER_LOSES_NOT_ZERO);
         }
-        if (numWins < 0 ) {
+        if (numberOfWins < 0) {
             throw new IllegalArgumentException(NUMBER_WINS_NOT_NEGATIVE);
         }
-        if(numLoses < 0 ){
+        if (numberOfLosses < 0) {
             throw new IllegalArgumentException(NUMBER_LOSES_NOT_NEGATIVE);
         }
 
-        this.numWins = numWins;
-        this.numLoses = numLoses;
-        this.numGames = numWins+numLoses;
-        this.lengthLongestGame = lengthLongestGame;
-        this.winningProbability = (double) numWins / this.numGames;
-        this.numTotalRolls = numTotalRolls;
-        this.averageNumRoll = (double) numTotalRolls / this.numGames;
-        this.numWinsOnComingOutRoll = numWinsOnComingOutRoll;
-        this.winningOnComingPutRollProbability = (double) this.numWinsOnComingOutRoll / this.numGames;
-        this.numLosesOnComingOutRoll = numLosesOnComingOutRoll;
-        this.losingOnComingPutRollProbability = (double) this.numLosesOnComingOutRoll / this.numGames;
+        this.numberOfWins = numberOfWins;
+        this.numberOfLosses = numberOfLosses;
+        this.numberOfGames = numberOfWins + numberOfLosses;
+        this.lengthOfLongestGame = lengthOfLongestGame;
+        this.winningProbability = (double) numberOfWins / this.numberOfGames;
+        this.numberOfTotalRolls = numberOfTotalRolls;
+        this.averageNumberOfRolls = (double) numberOfTotalRolls / this.numberOfGames;
+        this.numberOfWinsOnComingOutRoll = numberOfWinsOnComingOutRoll;
+        this.winningOnComingPutRollProbability = (double) this.numberOfWinsOnComingOutRoll / this.numberOfGames;
+        this.numberOfLosesOnComingOutRoll = numberOfLosesOnComingOutRoll;
+        this.losingOnComingPutRollProbability = (double) this.numberOfLosesOnComingOutRoll / this.numberOfGames;
     }
 }
