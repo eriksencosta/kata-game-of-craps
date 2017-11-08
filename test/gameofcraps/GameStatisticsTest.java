@@ -75,9 +75,10 @@ public class GameStatisticsTest {
         assertThat(gameStatistics.losingOnComingPutRollProbability, closeTo(0.06, TOLERANCE));
     }
 
-    private void assertGameStatisticsException(int numWins, int numLoses, String expectedErrorMessage) {
+    private void assertGameStatisticsException(int numWins, int numLoses, int numberOfWinsOnComingOutRoll,
+                                               int numberOfLosesOnComingOutRoll, int lengthOfLongestGame, String expectedErrorMessage) {
         try {
-            new GameStatistics(numWins, numLoses, 0, 0, 0, 0);
+            new GameStatistics(numWins, numLoses, lengthOfLongestGame, 0, numberOfWinsOnComingOutRoll, numberOfLosesOnComingOutRoll);
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), equalTo(expectedErrorMessage));
@@ -85,23 +86,33 @@ public class GameStatisticsTest {
     }
 
     @Test
-    public void throwsExceptionWhenNumberOfWinsIsZero() {
-        assertGameStatisticsException(0, 1, GameStatistics.NUMBER_WINS_NOT_ZERO);
+    public void throwsExceptionWhenNumberOfWinsAndLossesIsZeroSimultaneously() {
+        assertGameStatisticsException(0, 0, 0, 0, 5, GameStatistics.LOSES_AND_WINS_NOT_ZERO_SIMULTANEOUSLY);
     }
 
     @Test
     public void throwsExceptionWhenNumberOfWinsLessThenZero() {
-        assertGameStatisticsException(-1, 1, GameStatistics.NUMBER_WINS_NOT_NEGATIVE);
+        assertGameStatisticsException(-1, 1, 0, 0, 5, GameStatistics.NUMBER_WINS_NOT_NEGATIVE);
     }
 
     @Test
-    public void throwsExceptionWhenNumberOfLossesIsZero() {
-        assertGameStatisticsException(1, 0, GameStatistics.NUMBER_LOSES_NOT_ZERO);
+    public void throwsExceptionWhenNumberOfWinsInconmingOutRollMinorThanWins() {
+        assertGameStatisticsException(1, 1, 2, 3, 5, GameStatistics.NUMBER_OF_WINS_INCOMING_OUT_ROLL_GREATER_THAN_WINS);
     }
 
     @Test
-    public void throwsExceptionWhenNumberOfLosesLessThenZero() {
-        assertGameStatisticsException(1, -1, GameStatistics.NUMBER_LOSES_NOT_NEGATIVE);
+    public void throwsExceptionWhenNumberOfLossesInconmingOutRollMinorThanLosses() {
+        assertGameStatisticsException(1, 1, 0, 3, 5, GameStatistics.NUMBER_OF_LOSSES_INCOMING_OUT_ROLL_GREATER_THAN_LOSSES);
+    }
+
+    @Test
+    public void throwsExceptionWhenNumberOfLosesLessThanZero() {
+        assertGameStatisticsException(1, -1, 0, 0, 5, GameStatistics.NUMBER_LOSES_NOT_NEGATIVE);
+    }
+
+    @Test
+    public void throwsExceptionWhenLengthOfLongestGameLessThanOne() {
+        assertGameStatisticsException(1, 1, 0, 0, 0, GameStatistics.NUMBER_OF_LENGHT_OF_LONGEST_GAME_MINOR_THAN_ONE);
     }
 }
 
