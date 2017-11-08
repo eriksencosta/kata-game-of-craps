@@ -38,11 +38,11 @@ public class GameStatistics {
             throw new IllegalArgumentException("longestPlayedGame play must be at least one");
         }
 
-        if (winsInComingOutRoll > wins){
+        if (winsInComingOutRoll > wins) {
             throw new IllegalArgumentException("winsInComingOutRoll must be minor than wins");
         }
 
-        if (lossesInComingOutRoll > losses){
+        if (lossesInComingOutRoll > losses) {
             throw  new IllegalArgumentException("lossesInComingOutRoll must be minor than losses");
         }
 
@@ -54,24 +54,23 @@ public class GameStatistics {
         this.lossesInComingOutRoll = lossesInComingOutRoll;
     }
 
-    public int playedGames()
-    {
+    public int playedGames() {
         return this.wins + this.losses;
     }
 
-    public double winningProbability(){
+    public double winningProbability() {
         return (double) this.wins / this.playedGames();
     }
 
-    public double rollsPerGame(){
+    public double rollsPerGame() {
         return (double) this.rollsMade / this.playedGames();
     }
 
-    public double winningProbabilityInComingOutRoll(){
+    public double winningProbabilityInComingOutRoll() {
         return (double) this.winsInComingOutRoll / this.playedGames();
     }
 
-    public double lossesProbabilityInComingOutRoll(){
+    public double lossesProbabilityInComingOutRoll() {
         return (double) this.lossesInComingOutRoll / this.playedGames();
     }
 

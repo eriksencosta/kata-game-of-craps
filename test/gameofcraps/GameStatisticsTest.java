@@ -173,7 +173,7 @@ public class GameStatisticsTest {
     public ExpectedException thrownWinsInComingOutRollMajorThanWins = ExpectedException.none();
 
     @Test
-    public void creatingGameStatisticsThrowsExceptionWhenWinsInComingOutRollsIsMajorThanWins(){
+    public void creatingGameStatisticsThrowsExceptionWhenWinsInComingOutRollsIsMajorThanWins() {
         thrownWinsInComingOutRollMajorThanWins.expect(IllegalArgumentException.class);
         thrownWinsInComingOutRollMajorThanWins.expectMessage("winsInComingOutRoll must be minor than wins");
 
@@ -185,7 +185,7 @@ public class GameStatisticsTest {
     public ExpectedException thrownLossesInComingOutRollMajorThanLosses = ExpectedException.none();
 
     @Test
-    public void creatingGameStaticsThrownExceptionWhenLossesInComingOutRollsIsMajorThanLosses(){
+    public void creatingGameStaticsThrownExceptionWhenLossesInComingOutRollsIsMajorThanLosses() {
         thrownLossesInComingOutRollMajorThanLosses.expect(IllegalArgumentException.class);
         thrownLossesInComingOutRollMajorThanLosses.expectMessage("lossesInComingOutRoll must be minor than losses");
 
