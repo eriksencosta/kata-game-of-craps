@@ -8,14 +8,17 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
 public class GameStatisticsTest {
-    private GameStatistics gameStatistics = new GameStatistics(GAMES_WON, GAMES_LOST, 5, TOTAL_ROLLS, 5, 2);
 
     private static final int GAMES_WON = 10;
     private static final int GAMES_LOST = 20;
     private static final int GAMES_PLAYED = 30;
     private static final int TOTAL_ROLLS = 60;
     private static final double TOLERANCE = 1e-1;
+    private static final int LENGTH_OF_LONGEST_GAME = 5;
+    private static final int NUMBER_OF_WINS_ON_COMING_OUT_ROLL = 5;
+    private static final int NUMBER_OF_LOSSES_ON_COMING_OUT_ROLL = 2;
 
+    private GameStatistics gameStatistics = new GameStatistics(GAMES_WON, GAMES_LOST, LENGTH_OF_LONGEST_GAME, TOTAL_ROLLS, NUMBER_OF_WINS_ON_COMING_OUT_ROLL, NUMBER_OF_LOSSES_ON_COMING_OUT_ROLL);
 
     @Test
     public void calculateNumberOfWins() {
@@ -59,9 +62,7 @@ public class GameStatisticsTest {
 
     @Test
     public void calculateWinningOnComingPutRollProbability() {
-        //System.out.print(gameStatistics.winningOnComingPutRollProbability);
         assertThat(gameStatistics.winningOnComingPutRollProbability, closeTo(0.16, TOLERANCE));
-        //assertThat(0.16, closeTo(0.16, TOLERANCE));
     }
 
     @Test
