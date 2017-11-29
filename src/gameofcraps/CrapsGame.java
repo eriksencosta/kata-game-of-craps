@@ -5,25 +5,43 @@ public class CrapsGame {
     private boolean win;
     private int numRolls;
 
-    public CrapsGame() {
-        this.win = false;
-        this.numRolls = 0;
-        this.pairOfDice = new Dice();
+    public CrapsGame(Dice dice) {
+        pairOfDice = dice;
+        numRolls = 0;
     }
 
+
     public void reset() {
-        this.win = false;
-        this.numRolls = 0;
+        win = false;
+        numRolls = 0;
     }
 
     public void play() {
+        int rollOut;
+        pairOfDice.roll();
+        int comingRollOut = pairOfDice.getSumOfFaces();
+
+        if (comingRollOut == 7 || comingRollOut == 11) {
+            win = true;
+        } else if (comingRollOut == 2 || comingRollOut == 3 || comingRollOut == 12) {
+            win = false;
+        } else {
+
+            do {
+                pairOfDice.roll();
+                rollOut = pairOfDice.getSumOfFaces();
+
+            } while (rollOut != comingRollOut && comingRollOut != 7);
+            
+            win = rollOut == comingRollOut ? true : false;
+        }
     }
 
     public boolean getWin() {
-        return false;
+        return win;
     }
 
     public int getNumRolls() {
-        return -1;
+        return numRolls;
     }
 }

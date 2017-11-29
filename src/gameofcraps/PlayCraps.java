@@ -2,7 +2,7 @@ package gameofcraps;
 
 public class PlayCraps {
     public static void main(String[] args) {
-        CrapsGame game = new CrapsGame();
+        CrapsGame game = new CrapsGame(null);
         int numGames;
 
         System.out.println("Welcome to Craps!");
