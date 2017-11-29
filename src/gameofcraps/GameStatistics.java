@@ -15,35 +15,35 @@ public class GameStatistics {
                           int lossesInComingOutRoll) {
 
         if (wins < 0) {
-            throw new IllegalArgumentException("Wins cannot be negative");
+            throw new IllegalArgumentException("wins cannot be negative");
         }
 
         if (losses < 0) {
-            throw new IllegalArgumentException("Losses cannot be negative");
+            throw new IllegalArgumentException("losses cannot be negative");
         }
 
         if (winsInComingOutRoll < 0) {
-            throw new IllegalArgumentException("Wins in coming out roll cannot be negative");
+            throw new IllegalArgumentException("wins in coming out roll cannot be negative");
         }
 
         if (lossesInComingOutRoll < 0) {
-            throw new IllegalArgumentException("Losses in coming out roll cannot be negative");
+            throw new IllegalArgumentException("losses in coming out roll cannot be negative");
         }
 
         if (wins == 0 && losses == 0) {
-            throw new IllegalArgumentException("Losses and wins are equal to zero simultaneously");
+            throw new IllegalArgumentException("losses and wins are equal to zero simultaneously");
         }
 
         if (longestPlayedGame < 1) {
-            throw new IllegalArgumentException("Longest play must be at least one");
+            throw new IllegalArgumentException("longestPlayedGame play must be at least one");
         }
 
-        if (winsInComingOutRoll > wins){
-            throw new IllegalArgumentException("WinsInComingOutRolls must be minor than wins");
+        if (winsInComingOutRoll > wins) {
+            throw new IllegalArgumentException("winsInComingOutRoll must be minor than wins");
         }
 
-        if (lossesInComingOutRoll > losses){
-            throw  new IllegalArgumentException("LossesInComingOutRolls must be minor than losses");
+        if (lossesInComingOutRoll > losses) {
+            throw  new IllegalArgumentException("lossesInComingOutRoll must be minor than losses");
         }
 
         this.wins = wins;
@@ -54,24 +54,23 @@ public class GameStatistics {
         this.lossesInComingOutRoll = lossesInComingOutRoll;
     }
 
-    public int playedGames()
-    {
+    public int playedGames() {
         return this.wins + this.losses;
     }
 
-    public double winningProbability(){
+    public double winningProbability() {
         return (double) this.wins / this.playedGames();
     }
 
-    public double rollsPerGame(){
+    public double rollsPerGame() {
         return (double) this.rollsMade / this.playedGames();
     }
 
-    public double winningProbabilityInComingOutRoll(){
+    public double winningProbabilityInComingOutRoll() {
         return (double) this.winsInComingOutRoll / this.playedGames();
     }
 
-    public double lossesProbabilityInComingOutRoll(){
+    public double lossesProbabilityInComingOutRoll() {
         return (double) this.lossesInComingOutRoll / this.playedGames();
     }
 

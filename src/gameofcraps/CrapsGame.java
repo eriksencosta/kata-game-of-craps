@@ -5,17 +5,25 @@ public class CrapsGame {
     private boolean win;
     private int numRolls;
 
+    public CrapsGame(Dice customDice) {
+        pairOfDice = customDice;
+    }
+
     public CrapsGame() {
+        pairOfDice = new Dice();
     }
 
     public void reset() {
+
     }
 
     public void play() {
+        int diceResult = pairOfDice.roll();
+        win = diceResult == 7 || diceResult == 11;
     }
 
     public boolean getWin() {
-        return false;
+        return win;
     }
 
     public int getNumRolls() {
