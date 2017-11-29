@@ -14,10 +14,8 @@ public class Dice {
         return face1 + face2;
     }
 
-    public int roll() {
+    public void roll() {
         face1 = getRandInt1To6();
         face2 = getRandInt1To6();
-
-        return getSumOfFaces();
     }
 }
