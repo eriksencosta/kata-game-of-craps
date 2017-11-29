@@ -88,13 +88,13 @@ public class GameStatisticsTest {
     }
 
     @Rule
-    public ExpectedException thrownNegativeWins = ExpectedException.none();
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void creatingGameStatisticsThrowsExceptionWhenWinsIsNegativeOnInstantiation() {
 
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Wins cannot be negative");
+        thrown.expectMessage("wins cannot be negative");
 
         new GameStatistics(-1, NUMBER_OF_LOSSES, LONGEST_PLAYED_GAME, ROLLS_MADE, WINS_IN_COMMING_OUT_ROLL,
                 LOSSES_IN_COMMING_OUT_ROLL);
@@ -104,7 +104,7 @@ public class GameStatisticsTest {
     public void creatingGameStatisticsThrowsExceptionWhenLossesIsNegativeOnInstantiation() {
 
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Losses cannot be negative");
+        thrown.expectMessage("losses cannot be negative");
 
         new GameStatistics(NUMBER_OF_WINS, -1, LONGEST_PLAYED_GAME, ROLLS_MADE, WINS_IN_COMMING_OUT_ROLL,
                     LOSSES_IN_COMMING_OUT_ROLL);
@@ -148,7 +148,7 @@ public class GameStatisticsTest {
     public void creatingGameStatisticsThrowsExceptionWhenLongestPlayedGameIsLessThanOne() {
 
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("longestPlayedGame must be at least one");
+        thrown.expectMessage("longestPlayedGame play must be at least one");
 
         new GameStatistics(NUMBER_OF_WINS, NUMBER_OF_LOSSES, 0, ROLLS_MADE, WINS_IN_COMMING_OUT_ROLL,
                 LOSSES_IN_COMMING_OUT_ROLL);
