@@ -2,7 +2,6 @@ package gameofcraps;
 
 import org.junit.Test;
 
-import static org.hamcrest.Matchers.closeTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -17,53 +16,8 @@ public class GameStatisticsTest {
     private static final int NUMBERS_LOSSES_COMING_ROLL = 2;
     private static final int AVERAGE_ROLL = 15;
     private static final double TOLERANCE = 1e-4;
-    GameStatistics gameStatistics = new GameStatistics(WINS, LOSSES, TOTAL_ROLLS, LONGEST_PLAY,
+    private GameStatistics gameStatistics = new GameStatistics(WINS, LOSSES, TOTAL_ROLLS, LONGEST_PLAY,
             NUMBERS_WINS_COMING_ROLL, NUMBERS_LOSSES_COMING_ROLL, AVERAGE_ROLL);
-
-    @Test
-    public void createGameStatisticsResultsTotalNumberOfGames() {
-        assertEquals(gameStatistics.numberOfGames, NUMBERS_OF_GAMES);
-    }
-
-    @Test
-    public void createGameStatisticsResultsProbabilityOfWin() {
-        assertEquals(gameStatistics.probabilityWin, 0.4285, TOLERANCE);
-    }
-
-    @Test
-    public void createGameStatisticsResultsTotalRolls() {
-        assertEquals(gameStatistics.totalRolls, TOTAL_ROLLS);
-    }
-
-    @Test
-    public void createGameStatisticsResultsLongestGame() {
-        assertEquals(gameStatistics.longestPlay, LONGEST_PLAY);
-    }
-
-    @Test
-    public void createGameStatisticsResultsnNumberOfWinsComingRoll() {
-        assertEquals(gameStatistics.numberOfWinsComingRoll, NUMBERS_WINS_COMING_ROLL);
-    }
-
-    @Test
-    public void createGameStatisticsResultsNumberOfLossesComingRoll() {
-        assertEquals(gameStatistics.numberOfLossesComingRoll, NUMBERS_LOSSES_COMING_ROLL);
-    }
-
-    @Test
-    public void createGameStatisticsResultsProbabilityOfWinningAtFirstRoll() {
-        assertEquals(gameStatistics.probabilityOfWinAtComingRoll, 0.1428, TOLERANCE);
-    }
-
-    @Test
-    public void createGameStatisticsResultsProbabilityOfLosingAtFirstRoll() {
-        assertEquals(gameStatistics.probabilityOfLosingAtComingRoll, 0.2857, TOLERANCE);
-    }
-
-    @Test
-    public void createGameStatisticsResultsAverageNumberOfRollsPerGame() {
-        assertEquals(gameStatistics.averageNumberOfRollsPerGame, 2.1428, TOLERANCE);
-    }
 
     @Test
     public void throwsExceptionWhenWinsIsNegative() {
@@ -158,6 +112,51 @@ public class GameStatisticsTest {
         } catch (IllegalArgumentException e) {
             assertEquals("averageRolls must be greater than zero", e.getMessage());
         }
+    }
+
+    @Test
+    public void createGameStatisticsResultsTotalNumberOfGames() {
+        assertEquals(gameStatistics.numberOfGames, NUMBERS_OF_GAMES);
+    }
+
+    @Test
+    public void createGameStatisticsResultsProbabilityOfWin() {
+        assertEquals(gameStatistics.probabilityWin, 0.4285, TOLERANCE);
+    }
+
+    @Test
+    public void createGameStatisticsResultsTotalRolls() {
+        assertEquals(gameStatistics.totalRolls, TOTAL_ROLLS);
+    }
+
+    @Test
+    public void createGameStatisticsResultsLongestGame() {
+        assertEquals(gameStatistics.longestPlay, LONGEST_PLAY);
+    }
+
+    @Test
+    public void createGameStatisticsResultsnNumberOfWinsComingRoll() {
+        assertEquals(gameStatistics.numberOfWinsComingRoll, NUMBERS_WINS_COMING_ROLL);
+    }
+
+    @Test
+    public void createGameStatisticsResultsNumberOfLossesComingRoll() {
+        assertEquals(gameStatistics.numberOfLossesComingRoll, NUMBERS_LOSSES_COMING_ROLL);
+    }
+
+    @Test
+    public void createGameStatisticsResultsProbabilityOfWinningAtFirstRoll() {
+        assertEquals(gameStatistics.probabilityOfWinAtComingRoll, 0.1428, TOLERANCE);
+    }
+
+    @Test
+    public void createGameStatisticsResultsProbabilityOfLosingAtFirstRoll() {
+        assertEquals(gameStatistics.probabilityOfLosingAtComingRoll, 0.2857, TOLERANCE);
+    }
+
+    @Test
+    public void createGameStatisticsResultsAverageNumberOfRollsPerGame() {
+        assertEquals(gameStatistics.averageNumberOfRollsPerGame, 2.1428, TOLERANCE);
     }
 
 }
