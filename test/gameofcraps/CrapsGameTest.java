@@ -8,15 +8,9 @@ import static org.mockito.Mockito.*;
 public class CrapsGameTest {
 
     @Test
-    public void checkWinningInComingOutRoll() {
-        // Mock dice class.
-        Dice winningDice = mock(Dice.class);
+    public void winsIfComingOutRollIsSeven() {
+        CrapsGame game = new CrapsGame(new SequencedDice((7)));
 
-        // Overwrite roll method.
-        when(winningDice.roll()).thenReturn(7);
-
-        // We win because we got 7.
-        CrapsGame game = new CrapsGame(winningDice);
         game.play();
 
         assertTrue(game.getWin());
