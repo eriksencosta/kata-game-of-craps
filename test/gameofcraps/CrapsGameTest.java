@@ -3,11 +3,8 @@ package gameofcraps;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
-
-/**
- * Created by wilson on 11/29/17.
- */
 public class CrapsGameTest {
+
     @Test
     public void winsIfComingOutRollIsSeven() {
         CrapsGame game = new CrapsGame(new SequencedDice(7));
@@ -52,21 +49,4 @@ public class CrapsGameTest {
         assertTrue(!game.getWin());
     }
 
-    @Test
-    public void winsIfNthRollIsEqualsToComingOutRoll() {
-        CrapsGame game = new CrapsGame(new SequencedDice(4, 5, 4));
-
-        game.play();
-
-        assertTrue(game.getWin());
-    }
-
-    @Test
-    public void loosesIfNthRollIsSevenBeforeIsEqualsToComingOutRoll() {
-        CrapsGame game = new CrapsGame(new SequencedDice(4, 5, 7));
-
-        game.play();
-
-        assertTrue(!game.getWin());
-    }
 }

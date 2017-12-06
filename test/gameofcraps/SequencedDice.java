@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Arrays;
 
 class SequencedDice extends Dice {
+
     private final List<Integer> sequencedResults;
     private int rolls = -1;
 
@@ -30,6 +31,7 @@ class SequencedDice extends Dice {
             super("The SequencedDice has been exhausted");
         }
     }
+
 }
 
 
