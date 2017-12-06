@@ -4,7 +4,7 @@ public class CrapsGame {
     private Dice pairOfDice;
     private boolean win;
     private int numRolls;
-    private int firstRoll;
+    private int comingOutRoll;
     private int value;
 
     public CrapsGame(Dice dice) {
@@ -15,25 +15,29 @@ public class CrapsGame {
     }
 
     public void play() {
+
         pairOfDice.roll();
         numRolls++;
-        firstRoll = pairOfDice.getSumOfFaces();
-        if (firstRoll==7||firstRoll==11){
-          win=true;
-        }
-        else if (firstRoll != 2 && firstRoll!= 3 && firstRoll !=12){
-            do {
-                pairOfDice.roll();
-                numRolls++;
-                value = pairOfDice.getSumOfFaces();
+        comingOutRoll = pairOfDice.getSumOfFaces();
 
-            }
-            while (value != firstRoll || value == 7);
-            if (value == firstRoll){
-                win= true;
-            }
+        if (comingOutRoll == 7|| comingOutRoll == 11) {
+            win = true;
+            return;
         }
+
+        if (comingOutRoll == 2 || comingOutRoll == 3 || comingOutRoll == 12) {
+            return;
+        }
+
+        do {
+            pairOfDice.roll();
+            numRolls++;
+            value = pairOfDice.getSumOfFaces();
+        } while (value != comingOutRoll || value == 7);
+
+        win = value == comingOutRoll;
     }
+
 
     public boolean getWin() {
         return win;
