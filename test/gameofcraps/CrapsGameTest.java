@@ -40,7 +40,7 @@ public class CrapsGameTest {
 
         game.play();
 
-        assertTrue(game.getLose());
+        assertFalse(game.getWin());
     }
 
     @Test
@@ -49,7 +49,7 @@ public class CrapsGameTest {
 
         game.play();
 
-        assertTrue(game.getLose());
+        assertFalse(game.getWin());
     }
 
     @Test
@@ -58,7 +58,7 @@ public class CrapsGameTest {
 
         game.play();
 
-        assertTrue(game.getLose());
+        assertFalse(game.getWin());
     }
 
 
