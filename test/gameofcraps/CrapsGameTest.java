@@ -8,7 +8,7 @@ public class CrapsGameTest {
 
     @Test
     public void winsIfComingOutRollIsSeven() {
-        CrapsGame game = new CrapsGame(new SequencedDice((7)));
+        CrapsGame game = new CrapsGame(new DeterministicDice((7)));
 
         game.play();
 
@@ -17,7 +17,7 @@ public class CrapsGameTest {
 
     @Test
     public void winsIfComingOutRollIsEleven() {
-        CrapsGame game = new CrapsGame(new SequencedDice((11)));
+        CrapsGame game = new CrapsGame(new DeterministicDice((11)));
 
         game.play();
 
@@ -35,7 +35,7 @@ public class CrapsGameTest {
 
     @Test
     public void lossesIfComingOutRollIsTwo() {
-        CrapsGame game = new CrapsGame(new SequencedDice((2)));
+        CrapsGame game = new CrapsGame(new DeterministicDice((2)));
 
         game.play();
 
@@ -44,7 +44,7 @@ public class CrapsGameTest {
 
     @Test
     public void lossesIfComingOutRollIsThree() {
-        CrapsGame game = new CrapsGame(new SequencedDice((3)));
+        CrapsGame game = new CrapsGame(new DeterministicDice((3)));
 
         game.play();
 
@@ -53,7 +53,7 @@ public class CrapsGameTest {
 
     @Test
     public void lossesIfComingOutRollIsTwelve() {
-        CrapsGame game = new CrapsGame(new SequencedDice((12)));
+        CrapsGame game = new CrapsGame(new DeterministicDice((12)));
 
         game.play();
 
