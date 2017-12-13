@@ -25,15 +25,6 @@ public class CrapsGameTest {
     }
 
     @Test
-    public void winsIfNthRollIsEqualsToComingOutRoll() {
-        CrapsGame game = new CrapsGame(new SequencedDice(4, 5, 4));
-
-        game.play();
-
-        assertTrue(game.getWin());
-    }
-
-    @Test
     public void lossesIfComingOutRollIsTwo() {
         CrapsGame game = new CrapsGame(new DeterministicDice((2)));
 
