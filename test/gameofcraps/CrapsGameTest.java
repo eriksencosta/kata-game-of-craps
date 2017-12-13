@@ -53,4 +53,22 @@ public class CrapsGameTest {
         assertThat(game.getNumRolls(), equalTo(1));
     }
 
+    @Test
+    public void resetNumberOfRolls() {
+        CrapsGame game = new CrapsGame(new SequencedDice(3, 4, 3, 9));
+        game.play();
+        game.reset();
+
+        assertThat(game.getNumRolls(), equalTo(0));
+    }
+
+    @Test
+    public void resetWinToDefault() {
+        CrapsGame game = new CrapsGame(new SpecificDice(7));
+        game.play();
+        game.reset();
+
+        assertTrue(!game.getWin());
+    }
+
 }
