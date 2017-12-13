@@ -52,7 +52,7 @@ public class CrapsGame {
     }
 
     public int getNumRolls() {
-        return -1;
+        return numRolls;
     }
 
 

@@ -13,6 +13,7 @@ public class CrapsGameTest {
         game.play();
 
         assertTrue(game.getWin());
+        assertEquals(game.getNumRolls(), 1);
     }
 
     @Test
@@ -22,6 +23,7 @@ public class CrapsGameTest {
         game.play();
 
         assertTrue(game.getWin());
+        assertEquals(game.getNumRolls(), 1);
     }
 
     @Test
@@ -31,6 +33,7 @@ public class CrapsGameTest {
         game.play();
 
         assertFalse(game.getWin());
+        assertEquals(game.getNumRolls(), 1);
     }
 
     @Test
@@ -40,6 +43,7 @@ public class CrapsGameTest {
         game.play();
 
         assertFalse(game.getWin());
+        assertEquals(game.getNumRolls(), 1);
     }
 
     @Test
@@ -49,7 +53,7 @@ public class CrapsGameTest {
         game.play();
 
         assertFalse(game.getWin());
+        assertEquals(game.getNumRolls(), 1);
     }
-
 
 }
