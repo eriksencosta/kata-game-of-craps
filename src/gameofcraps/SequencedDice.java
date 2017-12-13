@@ -28,7 +28,7 @@ class SequencedDice extends Dice {
 
     private class ExhaustedDiceException extends RuntimeException {
         ExhaustedDiceException() {
-            super("The SequencedDice has been exhausted");
+            super("The SequencedDice has been exhausted. Sequence: " + sequencedResults.toString());
         }
     }
 }

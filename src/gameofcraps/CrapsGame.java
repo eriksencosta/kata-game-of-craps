@@ -33,7 +33,7 @@ public class CrapsGame {
             pairOfDice.roll();
             numRolls++;
             value = pairOfDice.getSumOfFaces();
-        } while (value != comingOutRoll || value == 7);
+        } while (value != comingOutRoll && value != 7);
 
         win = value == comingOutRoll;
     }

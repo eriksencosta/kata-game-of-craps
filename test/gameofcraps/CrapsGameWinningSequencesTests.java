@@ -16,12 +16,17 @@ public class CrapsGameWinningSequencesTests {
     @Parameterized.Parameters
     public static Collection<SequencedDice> data() {
         return Arrays.asList(
-                new SequencedDice(7), new SequencedDice(11), new SequencedDice(4, 4),
-                new SequencedDice(4, 5, 4), new SequencedDice(4, 5, 6, 4),
-                new SequencedDice(10, 10), new SequencedDice(10, 9, 10),
-                new SequencedDice(10, 9, 5, 10), new SequencedDice(10, 9, 5, 9, 10),
-                new SequencedDice(4, 2, 4), new SequencedDice(4, 3, 4),
-                new SequencedDice(4, 12, 4), new SequencedDice(4, 5, 6, 8, 9, 10, 5, 6, 8, 9, 5, 6, 8,
+                new SequencedDice(4, 4),
+                new SequencedDice(4, 5, 4),
+                new SequencedDice(4, 5, 6, 4),
+                new SequencedDice(10, 10),
+                new SequencedDice(10, 9, 10),
+                new SequencedDice(10, 9, 5, 10),
+                new SequencedDice(10, 9, 5, 9, 10),
+                new SequencedDice(4, 2, 4),
+                new SequencedDice(4, 3, 4),
+                new SequencedDice(4, 12, 4),
+                new SequencedDice(4, 5, 6, 8, 9, 10, 5, 6, 8, 9, 5, 6, 8,
                         9, 5, 6, 8, 9, 5, 6, 8, 9, 5, 6, 8, 9, 5, 6, 8, 9, 5, 6, 8, 9, 5, 6, 8, 9, 4)
         );
     }
