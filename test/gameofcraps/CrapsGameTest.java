@@ -56,4 +56,15 @@ public class CrapsGameTest {
         assertEquals(game.getNumRolls(), 1);
     }
 
+    @Test
+    public void resetSetsWinsToFalseAndNumRollsToZero() {
+        CrapsGame game = new CrapsGame(new DeterministicDice((7)));
+
+        game.play();
+        game.reset();
+
+        assertFalse(game.getWin());
+        assertEquals(game.getNumRolls(), 0);
+    }
+
 }
