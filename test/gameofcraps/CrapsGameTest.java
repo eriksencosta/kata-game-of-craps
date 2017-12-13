@@ -7,55 +7,62 @@ public class CrapsGameTest {
 
     @Test
     public void winsIfComingOutRollIsSeven() {
-        CrapsGame game = new CrapsGame(new SequencedDice(7));
+        CrapsGame game = new CrapsGame(new DeterministicDice(7));
 
         game.play();
 
         assertTrue(game.getWin());
+        assertEquals(game.getNumRolls(), 1);
     }
 
     @Test
     public void winsIfComingOutRollIsEleven() {
-        CrapsGame game = new CrapsGame(new SequencedDice(11));
+        CrapsGame game = new CrapsGame(new DeterministicDice(11));
 
         game.play();
 
         assertTrue(game.getWin());
-    }
-
-    @Test
-    public void winsIfNthRollIsEqualsToComingOutRoll() {
-        CrapsGame game = new CrapsGame(new SequencedDice(4, 5, 4));
-
-        game.play();
-
-        assertTrue(game.getWin());
+        assertEquals(game.getNumRolls(), 1);
     }
 
     @Test
     public void loseIfComingOutRollIsTwo() {
-        CrapsGame game = new CrapsGame(new SequencedDice(2));
+        CrapsGame game = new CrapsGame(new DeterministicDice(2));
 
         game.play();
 
         assertFalse(game.getWin());
+        assertEquals(game.getNumRolls(), 1);
     }
 
     @Test
     public void loseIfComingOutRollIsThree() {
-        CrapsGame game = new CrapsGame(new SequencedDice(3));
+        CrapsGame game = new CrapsGame(new DeterministicDice(3));
 
         game.play();
 
         assertFalse(game.getWin());
+        assertEquals(game.getNumRolls(), 1);
     }
 
     @Test
     public void loseIfComingOutRollIsTwelve() {
-        CrapsGame game = new CrapsGame(new SequencedDice(12));
+        CrapsGame game = new CrapsGame(new DeterministicDice(12));
 
         game.play();
 
         assertFalse(game.getWin());
+        assertEquals(game.getNumRolls(), 1);
+    }
+
+    @Test
+    public void validateResetAfterWinning() {
+        CrapsGame game = new CrapsGame(new DeterministicDice(11));
+
+        game.play();
+        game.reset();
+
+        assertFalse(game.getWin());
+        assertEquals(game.getNumRolls(), 0);
     }
 }

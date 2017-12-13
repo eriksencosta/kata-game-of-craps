@@ -12,6 +12,8 @@ public class CrapsGame {
     }
 
     public void reset() {
+        win = false;
+        numRolls = 0;
     }
 
     public void play() {
@@ -46,4 +48,5 @@ public class CrapsGame {
     public int getNumRolls() {
         return numRolls;
     }
+
 }
