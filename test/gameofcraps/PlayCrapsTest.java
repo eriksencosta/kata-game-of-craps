@@ -3,6 +3,7 @@ package gameofcraps;
 import org.junit.Test;
 
 public class PlayCrapsTest {
+
     @Test
     public void playingCrapsGeneratesGameStatistics() {
         // Arrange
@@ -15,4 +16,5 @@ public class PlayCrapsTest {
         // Assert
 
     }
+
 }

@@ -1,8 +1,8 @@
 package gameofcraps;
 
 import org.junit.Test;
-import org.junit.runners.Parameterized;
 import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -38,6 +38,7 @@ public class CrapsGameLoseSequencesTest {
     public void RunSequenceLoseTests() {
         CrapsGame game = new CrapsGame(sequenceDice);
         game.play();
+
         assertTrue(!game.getWin());
     }
 

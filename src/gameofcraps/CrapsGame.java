@@ -1,11 +1,12 @@
 package gameofcraps;
 
 public class CrapsGame {
+
     private Dice pairOfDice;
     private boolean win;
     private int numRolls;
 
-    public CrapsGame(Dice dice) {
+    CrapsGame(Dice dice) {
         pairOfDice = dice;
         numRolls = 0;
     }
@@ -46,4 +47,5 @@ public class CrapsGame {
     public int getNumRolls() {
         return numRolls;
     }
+
 }

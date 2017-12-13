@@ -1,6 +1,7 @@
 package gameofcraps;
 
 public class Dice {
+
     private int face1;
     private int face2;
 
@@ -8,7 +9,7 @@ public class Dice {
         return (int) (6 * Math.random() + 1);
     }
 
-    public Dice() {
+    Dice() {
     }
 
     public int getSumOfFaces() {
@@ -17,4 +18,5 @@ public class Dice {
 
     public void roll() {
     }
+
 }

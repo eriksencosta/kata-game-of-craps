@@ -7,8 +7,7 @@ public class CrapsGameTest {
 
     @Test
     public void winsIfComingOutRollIsSeven() {
-        CrapsGame game = new CrapsGame(new SequencedDice(7));
-
+        CrapsGame game = new CrapsGame(new SpecificDice(7));
         game.play();
 
         assertTrue(game.getWin());
@@ -16,34 +15,31 @@ public class CrapsGameTest {
 
     @Test
     public void winsIfComingOutRollIsEleven() {
-        CrapsGame game = new CrapsGame(new SequencedDice(11));
-
+        CrapsGame game = new CrapsGame(new SpecificDice(11));
         game.play();
 
         assertTrue(game.getWin());
     }
 
     @Test
-    public void loosesIfComingOutRollIsTwo(){
-        CrapsGame game = new CrapsGame(new SequencedDice(2));
-
+    public void loosesIfComingOutRollIsTwo() {
+        CrapsGame game = new CrapsGame(new SpecificDice(2));
         game.play();
 
         assertTrue(!game.getWin());
     }
 
     @Test
-    public void loosesIfComingOutRollIsThree(){
-        CrapsGame game = new CrapsGame(new SequencedDice(3));
-
+    public void loosesIfComingOutRollIsThree() {
+        CrapsGame game = new CrapsGame(new SpecificDice(3));
         game.play();
 
         assertTrue(!game.getWin());
     }
 
-    public void loosesIfComingOutRollIsTwelve(){
-        CrapsGame game = new CrapsGame(new SequencedDice(12));
-
+    @Test
+    public void loosesIfComingOutRollIsTwelve() {
+        CrapsGame game = new CrapsGame(new SpecificDice(12));
         game.play();
 
         assertTrue(!game.getWin());
