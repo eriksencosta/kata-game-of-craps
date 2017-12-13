@@ -7,13 +7,15 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class CrapsGameLoseSequencesTest {
 
     @Parameterized.Parameters
-    public static Collection<SequencedDice> data() {
+    public static Collection<SequencedDice> listOfSequencedDices() {
         return Arrays.asList(
                 new SequencedDice(4, 7),
                 new SequencedDice(4, 5, 6, 7),
@@ -35,11 +37,12 @@ public class CrapsGameLoseSequencesTest {
     public SequencedDice sequenceDice;
 
     @Test
-    public void RunSequenceLoseTests() {
+    public void losesIfNthRollIsEqualsToSeven() {
         CrapsGame game = new CrapsGame(sequenceDice);
         game.play();
 
         assertTrue(!game.getWin());
+        assertThat(game.getNumRolls(), equalTo(sequenceDice.numberOfRolls()));
     }
 
 }

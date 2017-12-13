@@ -8,7 +8,6 @@ public class CrapsGame {
 
     CrapsGame(Dice dice) {
         pairOfDice = dice;
-        numRolls = 0;
     }
 
     public void reset() {
@@ -18,7 +17,7 @@ public class CrapsGame {
 
     public void play() {
         int rollOut;
-        pairOfDice.roll();
+        rollDices();
         int comingRollOut = pairOfDice.getSumOfFaces();
 
         if (comingRollOut == 7 || comingRollOut == 11) {
@@ -32,12 +31,17 @@ public class CrapsGame {
         }
 
         do {
-            pairOfDice.roll();
+            rollDices();
             rollOut = pairOfDice.getSumOfFaces();
 
         } while (rollOut != comingRollOut && rollOut != 7);
 
         win = rollOut == comingRollOut;
+    }
+
+    private void rollDices() {
+        pairOfDice.roll();
+        numRolls++;
     }
 
     public boolean getWin() {

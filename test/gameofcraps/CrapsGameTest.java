@@ -1,6 +1,9 @@
 package gameofcraps;
 
 import org.junit.Test;
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class CrapsGameTest {
@@ -11,6 +14,7 @@ public class CrapsGameTest {
         game.play();
 
         assertTrue(game.getWin());
+        assertThat(game.getNumRolls(), equalTo(1));
     }
 
     @Test
@@ -19,6 +23,7 @@ public class CrapsGameTest {
         game.play();
 
         assertTrue(game.getWin());
+        assertThat(game.getNumRolls(), equalTo(1));
     }
 
     @Test
@@ -27,6 +32,7 @@ public class CrapsGameTest {
         game.play();
 
         assertTrue(!game.getWin());
+        assertThat(game.getNumRolls(), equalTo(1));
     }
 
     @Test
@@ -35,6 +41,7 @@ public class CrapsGameTest {
         game.play();
 
         assertTrue(!game.getWin());
+        assertThat(game.getNumRolls(), equalTo(1));
     }
 
     @Test
@@ -43,6 +50,7 @@ public class CrapsGameTest {
         game.play();
 
         assertTrue(!game.getWin());
+        assertThat(game.getNumRolls(), equalTo(1));
     }
 
 }

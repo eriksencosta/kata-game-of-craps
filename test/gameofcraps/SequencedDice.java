@@ -26,9 +26,13 @@ class SequencedDice extends Dice {
         }
     }
 
+    public int numberOfRolls() {
+        return sequencedResults.size();
+    }
+
     private class ExhaustedDiceException extends RuntimeException {
         ExhaustedDiceException() {
-            super("The SequencedDice has been exhausted");
+            super("The SequencedDice has been exhausted. Sequence: " + sequencedResults.toString());
         }
     }
 

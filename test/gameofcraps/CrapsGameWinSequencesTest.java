@@ -1,7 +1,5 @@
 package gameofcraps;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -10,11 +8,15 @@ import org.junit.runners.Parameterized.Parameters;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
 @RunWith(Parameterized.class)
 public class CrapsGameWinSequencesTest {
 
     @Parameters
-    public static Collection<SequencedDice> data() {
+    public static Collection<SequencedDice> listOfSequencedDices() {
         return Arrays.asList(
                 new SequencedDice(4, 4),
                 new SequencedDice(4, 5, 4),
@@ -34,10 +36,12 @@ public class CrapsGameWinSequencesTest {
     public SequencedDice sequenceDice;
 
     @Test
-    public void RunSequenceWinTests() {
+    public void winsIfNthRollIsEqualsToComingOutRoll() {
         CrapsGame game = new CrapsGame(sequenceDice);
         game.play();
+
         assertTrue(game.getWin());
+        assertThat(game.getNumRolls(), equalTo(sequenceDice.numberOfRolls()));
     }
 
 }
