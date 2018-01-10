@@ -14,6 +14,6 @@ public class PlayCrapsTest {
 
         GameStatistics statistics = playing.play(numGames);
 
-        assertTrue(statistics == null);
+        assertTrue(statistics != null);
     }
 }

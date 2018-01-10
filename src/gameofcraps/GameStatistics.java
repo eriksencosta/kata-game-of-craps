@@ -74,4 +74,8 @@ public class GameStatistics {
         return (double) this.lossesInComingOutRoll / this.playedGames();
     }
 
+    public double longestPlayedGame() {
+        return this.longestPlayedGame;
+    }
+
 }
