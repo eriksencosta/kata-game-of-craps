@@ -32,6 +32,7 @@ public class GameStatistics {
         if (numberOfWins < 0) {
             throw new IllegalArgumentException(NUMBER_WINS_NOT_NEGATIVE);
         }
+
         if (numberOfLosses < 0) {
             throw new IllegalArgumentException(NUMBER_LOSES_NOT_NEGATIVE);
         }
@@ -60,4 +61,20 @@ public class GameStatistics {
         this.numberOfLosesOnComingOutRoll = numberOfLosesOnComingOutRoll;
         this.losingOnComingPutRollProbability = (double) this.numberOfLosesOnComingOutRoll / this.numberOfGames;
     }
+
+    @Override
+    public String toString() {
+        return "Total Wins: " + numberOfWins +
+                "\nTotal Loses: " + numberOfLosses +
+                "\nNumber Of Games: " + numberOfGames +
+                "\nLength Of Longest Game: " + lengthOfLongestGame +
+                "\nWinning Probability: " + winningProbability +
+                "\nNumber Of Total Rolls: " + numberOfTotalRolls +
+                "\nAverage Number Of Rolls: " + averageNumberOfRolls +
+                "\nNumber Of Wins On Coming Out Roll: " + numberOfWinsOnComingOutRoll +
+                "\nWinning On Coming Put Roll Probability: " + winningOnComingPutRollProbability +
+                "\nNumber Of Loses On Coming Out Roll: " + numberOfLosesOnComingOutRoll +
+                "\nLosing On Coming Put Roll Probability: " + losingOnComingPutRollProbability;
+    }
+
 }
