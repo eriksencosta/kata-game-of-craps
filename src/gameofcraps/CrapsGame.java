@@ -39,17 +39,17 @@ public class CrapsGame {
         win = rollOut == comingRollOut;
     }
 
-    private void rollDices() {
-        pairOfDice.roll();
-        numRolls++;
-    }
-
     public boolean getWin() {
         return win;
     }
 
     public int getNumRolls() {
         return numRolls;
+    }
+
+    private void rollDices() {
+        pairOfDice.roll();
+        numRolls++;
     }
 
 }

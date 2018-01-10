@@ -13,10 +13,12 @@ public class Dice {
     }
 
     public int getSumOfFaces() {
-        return -1;
+        return face1+face2;
     }
 
     public void roll() {
+        face1 = getRandInt1To6();
+        face2 = getRandInt1To6();
     }
 
 }
