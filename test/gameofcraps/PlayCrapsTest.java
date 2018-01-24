@@ -8,6 +8,4 @@ public class PlayCrapsTest {
         final String[] numGames = {"100"};
         PlayCraps.main(numGames);
     }
-
-
 }

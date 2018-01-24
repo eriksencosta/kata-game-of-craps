@@ -22,7 +22,7 @@ public class CrapsGame {
         numRolls++;
         comingOutRoll = pairOfDice.getSumOfFaces();
 
-        if (comingOutRoll == 7|| comingOutRoll == 11) {
+        if (comingOutRoll == 7 || comingOutRoll == 11) {
             win = true;
             return;
         }

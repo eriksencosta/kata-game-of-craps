@@ -6,7 +6,7 @@ public class PlayCraps {
         System.out.println("Welcome to Craps!");
         numGames = Integer.parseInt(args[0]);
         System.out.println("Enter number of games: " + numGames);
-        GameStatistics gameStatisticsResult= play(numGames);
+        GameStatistics gameStatisticsResult = play(numGames);
         System.out.println("wins " + gameStatisticsResult.wins);
         System.out.println("losses " + gameStatisticsResult.losses);
         System.out.println("numberOfGames " + gameStatisticsResult.numberOfGames);
@@ -25,7 +25,8 @@ public class PlayCraps {
         System.out.println("averageRolls " + gameStatisticsResult.averageRolls);
         System.out.println("probabilityWin " + gameStatisticsResult.probabilityWin);
     }
-    public static GameStatistics play(int numGames){
+
+    public static GameStatistics play(int numGames) {
 
         CrapsGame crapsGame = new CrapsGame(new Dice());
         int wins = 0;
@@ -36,7 +37,7 @@ public class PlayCraps {
         int averageRoll = 0;
         int totalRolls = 0;
 
-        for(int i = 0; i < numGames; i ++) {
+        for (int i = 0; i < numGames; i++) {
             crapsGame.play();
             boolean resultGame = crapsGame.getWin();
             int numRolls = crapsGame.getNumRolls();
