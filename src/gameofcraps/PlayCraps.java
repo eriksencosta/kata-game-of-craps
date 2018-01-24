@@ -2,7 +2,6 @@ package gameofcraps;
 
 public class PlayCraps {
     public static void main(String[] args) {
-        CrapsGame game = new CrapsGame(new Dice());
         int numGames;
         System.out.println("Welcome to Craps!");
         numGames = Integer.parseInt(args[0]);
@@ -27,7 +26,36 @@ public class PlayCraps {
         System.out.println("probabilityWin " + gameStatisticsResult.probabilityWin);
     }
     public static GameStatistics play(int numGames){
-        return new GameStatistics(3, 4, 20, 79,
-                1, 0, 15);
+
+        CrapsGame crapsGame = new CrapsGame(new Dice());
+        int wins = 0;
+        int losses = 0;
+        int winsAtComingOutRoll = 0;
+        int lossesAtComingOutRoll = 0;
+        int longestPlay = 0;
+        int averageRoll = 0;
+        int totalRolls = 0;
+
+        for(int i = 0; i < numGames; i ++) {
+            crapsGame.play();
+            boolean resultGame = crapsGame.getWin();
+            int numRolls = crapsGame.getNumRolls();
+
+            if (resultGame == true)
+                wins++;
+            if (resultGame == false)
+                losses++;
+            if (resultGame == true && numRolls == 1)
+                winsAtComingOutRoll++;
+            if (resultGame == false && numRolls == 1)
+                lossesAtComingOutRoll++;
+            if (longestPlay < numRolls)
+                longestPlay = numRolls;
+            totalRolls += numRolls;
+            averageRoll = totalRolls / numGames;
+        }
+
+        return new GameStatistics(wins, losses, totalRolls, longestPlay,
+                winsAtComingOutRoll, lossesAtComingOutRoll, averageRoll);
     }
 }
