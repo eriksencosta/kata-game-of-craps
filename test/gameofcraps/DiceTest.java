@@ -10,9 +10,12 @@ public class DiceTest {
     @Test
     public void rangeBetweenOneAndSix() {
         Dice dice = new Dice();
-        dice.roll();
 
-        assertThat(dice.getSumOfFaces(), allOf(greaterThan(1), lessThan(13)));
+        for(int i = 0; i < 100; i++){
+            dice.roll();
+            assertThat(dice.getSumOfFaces(), allOf(greaterThan(1), lessThan(13)));
+        }
+
     }
 
 }
