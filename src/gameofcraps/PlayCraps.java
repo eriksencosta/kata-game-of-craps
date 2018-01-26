@@ -37,21 +37,31 @@ public class PlayCraps {
         int averageRoll = 0;
         int totalRolls = 0;
 
+        if (numGames < 1)
+            throw new IllegalArgumentException("numGames must be greater than one");
+
         for (int i = 0; i < numGames; i++) {
+
             crapsGame.play();
+
             boolean resultGame = crapsGame.getWin();
             int numRolls = crapsGame.getNumRolls();
 
             if (resultGame == true)
                 wins++;
+
             if (resultGame == false)
                 losses++;
+
             if (resultGame == true && numRolls == 1)
                 winsAtComingOutRoll++;
+
             if (resultGame == false && numRolls == 1)
                 lossesAtComingOutRoll++;
+
             if (longestPlay < numRolls)
                 longestPlay = numRolls;
+
             totalRolls += numRolls;
             averageRoll = totalRolls / numGames;
         }
