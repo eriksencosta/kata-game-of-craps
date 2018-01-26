@@ -3,22 +3,15 @@ package gameofcraps;
 public class PlayCraps {
     public static void main(String[] args) {
 
-        int numGames;
+        int numberOfGames;
+        printGreeting();
 
-        System.out.println("Welcome to Craps!");
-        System.out.println("Enter number of games: ");
-        numGames = Integer.parseInt(args[0]);
+        numberOfGames = tryParseStringToInteger(args[0]);
 
-        GameStatistics gameStatistics = play(numGames);
+        GameStatistics gameStatistics = play(numberOfGames);
 
-        System.out.println("Played games: " + gameStatistics.playedGames());
-        System.out.println("Winning probability games: " + gameStatistics.winningProbability());
-        System.out.println("Rolls per game: " + gameStatistics.rollsPerGame());
-        System.out.println("Longest played game: " + gameStatistics.longestPlayedGame());
-        System.out.println("Winning probability in coming roll out: " +
-                gameStatistics.winningProbabilityInComingOutRoll());
+        printGameStatistics(gameStatistics);
 
-        System.out.println("Lose probability in coming roll out: " + gameStatistics.lossesProbabilityInComingOutRoll());
     }
 
     public static GameStatistics play(int numberOfGames) {
@@ -58,6 +51,30 @@ public class PlayCraps {
         }
 
         return new GameStatistics(wins, losses, longestPlayedGame, rollsMade, winsComingOutRoll, lossesInComingOutRoll);
+    }
+
+    public static Integer tryParseStringToInteger (String text) {
+        try {
+            return Integer.parseInt(text);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Argument is not an integer");
+        }
+    }
+
+    public static void printGreeting() {
+        System.out.println("Welcome to Craps!");
+        System.out.println("Enter number of games: ");
+    }
+
+    public static void printGameStatistics(GameStatistics gameStatistics){
+        System.out.println("Played games: " + gameStatistics.playedGames());
+        System.out.println("Winning probability games: " + gameStatistics.winningProbability());
+        System.out.println("Rolls per game: " + gameStatistics.rollsPerGame());
+        System.out.println("Longest played game: " + gameStatistics.longestPlayedGame());
+        System.out.println("Winning probability in coming roll out: " +
+                gameStatistics.winningProbabilityInComingOutRoll());
+
+        System.out.println("Lose probability in coming roll out: " + gameStatistics.lossesProbabilityInComingOutRoll());
     }
 
 }

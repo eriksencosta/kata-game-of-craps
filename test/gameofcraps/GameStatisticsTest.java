@@ -14,76 +14,76 @@ import static org.junit.Assert.*;
 
 public class GameStatisticsTest {
 
-    GameStatistics stats;
+    GameStatistics statistics;
 
     private static final int NUMBER_OF_LOSSES = 10;
     private static final int NUMBER_OF_WINS = 10;
     private static final int LONGEST_PLAYED_GAME = 10;
     private static final int ROLLS_MADE = 10;
-    private static final int WINS_IN_COMMING_OUT_ROLL = 10;
-    private static final int LOSSES_IN_COMMING_OUT_ROLL = 10;
+    private static final int WINS_IN_COMING_OUT_ROLL = 10;
+    private static final int LOSSES_IN_COMING_OUT_ROLL = 10;
     private static final double TOLERANCE = 1e-6;
 
 
     @Before
     public void createGameStatistics() {
-        stats = new GameStatistics(NUMBER_OF_WINS, NUMBER_OF_LOSSES, LONGEST_PLAYED_GAME, ROLLS_MADE,
-                WINS_IN_COMMING_OUT_ROLL, LOSSES_IN_COMMING_OUT_ROLL);
+        statistics = new GameStatistics(NUMBER_OF_WINS, NUMBER_OF_LOSSES, LONGEST_PLAYED_GAME, ROLLS_MADE,
+                WINS_IN_COMING_OUT_ROLL, LOSSES_IN_COMING_OUT_ROLL);
     }
 
     @Test
     public void creatingGameStatisticsResultsInNumberOfPlayedGames() {
-        assertThat(stats.playedGames(), equalTo(NUMBER_OF_LOSSES + NUMBER_OF_WINS));
+        assertThat(statistics.playedGames(), equalTo(NUMBER_OF_LOSSES + NUMBER_OF_WINS));
     }
 
 
     @Test
     public void creatingGameStatisticsResultsInNumberOfWinsGames() {
-        assertThat(stats.wins, equalTo(NUMBER_OF_WINS));
+        assertThat(statistics.wins, equalTo(NUMBER_OF_WINS));
     }
 
     @Test
     public void creatingGameStatisticsResultsInNumberOfLongestPlayedGame() {
-        assertThat(stats.longestPlayedGame, equalTo(LONGEST_PLAYED_GAME));
+        assertThat(statistics.longestPlayedGame, equalTo(LONGEST_PLAYED_GAME));
     }
 
     @Test
     public void creatingGameStatisticsResultsInWinnerProbability() {
         double probability = ((double) NUMBER_OF_WINS / (NUMBER_OF_WINS + NUMBER_OF_LOSSES));
-        assertThat(stats.winningProbability(), closeTo(probability, TOLERANCE));
+        assertThat(statistics.winningProbability(), closeTo(probability, TOLERANCE));
     }
 
     @Test
     public void creatingGameStatisticsResultsInNumberOfRollsMade() {
-        assertThat(stats.rollsMade, equalTo(ROLLS_MADE));
+        assertThat(statistics.rollsMade, equalTo(ROLLS_MADE));
     }
 
     @Test
     public void creatingGameStatisticsResultsInNumberOfRollsPerGame() {
         double roolsPerGame = (double) ROLLS_MADE / (NUMBER_OF_WINS + NUMBER_OF_LOSSES);
-        assertThat(stats.rollsPerGame(), equalTo(roolsPerGame));
+        assertThat(statistics.rollsPerGame(), equalTo(roolsPerGame));
     }
 
     @Test
     public void creatingGameStatisticsResultsInNumberOfWinsInCommingOutRoll() {
-        assertThat(stats.winsInComingOutRoll, equalTo(WINS_IN_COMMING_OUT_ROLL));
+        assertThat(statistics.winsInComingOutRoll, equalTo(WINS_IN_COMING_OUT_ROLL));
     }
 
     @Test
     public void creatingGameStatisticsResultsInWinnerProbabilityInComingOutRoll() {
-        double probability = ((double) WINS_IN_COMMING_OUT_ROLL / (NUMBER_OF_WINS + NUMBER_OF_LOSSES));
-        assertThat(stats.winningProbabilityInComingOutRoll(), closeTo(probability, TOLERANCE));
+        double probability = ((double) WINS_IN_COMING_OUT_ROLL / (NUMBER_OF_WINS + NUMBER_OF_LOSSES));
+        assertThat(statistics.winningProbabilityInComingOutRoll(), closeTo(probability, TOLERANCE));
     }
 
     @Test
     public void creatingGameStatisticsResultsInNUmberOfLosesInComingOutRoll() {
-        assertThat(stats.lossesInComingOutRoll, equalTo(LOSSES_IN_COMMING_OUT_ROLL));
+        assertThat(statistics.lossesInComingOutRoll, equalTo(LOSSES_IN_COMING_OUT_ROLL));
     }
 
     @Test
     public void creatingGameStatisticsResultsInLosesProbabilityInComingOutRoll() {
-        double probability = ((double) LOSSES_IN_COMMING_OUT_ROLL / (NUMBER_OF_WINS + NUMBER_OF_LOSSES));
-        assertThat(stats.lossesProbabilityInComingOutRoll(), closeTo(probability, TOLERANCE));
+        double probability = ((double) LOSSES_IN_COMING_OUT_ROLL / (NUMBER_OF_WINS + NUMBER_OF_LOSSES));
+        assertThat(statistics.lossesProbabilityInComingOutRoll(), closeTo(probability, TOLERANCE));
     }
 
     @Rule
@@ -95,8 +95,8 @@ public class GameStatisticsTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("wins cannot be negative");
 
-        new GameStatistics(-1, NUMBER_OF_LOSSES, LONGEST_PLAYED_GAME, ROLLS_MADE, WINS_IN_COMMING_OUT_ROLL,
-                LOSSES_IN_COMMING_OUT_ROLL);
+        new GameStatistics(-1, NUMBER_OF_LOSSES, LONGEST_PLAYED_GAME, ROLLS_MADE, WINS_IN_COMING_OUT_ROLL,
+                LOSSES_IN_COMING_OUT_ROLL);
     }
 
     @Test
@@ -105,8 +105,8 @@ public class GameStatisticsTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("losses cannot be negative");
 
-        new GameStatistics(NUMBER_OF_WINS, -1, LONGEST_PLAYED_GAME, ROLLS_MADE, WINS_IN_COMMING_OUT_ROLL,
-                LOSSES_IN_COMMING_OUT_ROLL);
+        new GameStatistics(NUMBER_OF_WINS, -1, LONGEST_PLAYED_GAME, ROLLS_MADE, WINS_IN_COMING_OUT_ROLL,
+                LOSSES_IN_COMING_OUT_ROLL);
 
     }
 
@@ -117,7 +117,7 @@ public class GameStatisticsTest {
         thrown.expectMessage("winsInComingOutRoll cannot be negative");
 
         new GameStatistics(NUMBER_OF_WINS, NUMBER_OF_LOSSES, LONGEST_PLAYED_GAME, ROLLS_MADE, -1,
-                LOSSES_IN_COMMING_OUT_ROLL);
+                LOSSES_IN_COMING_OUT_ROLL);
 
     }
 
@@ -127,7 +127,7 @@ public class GameStatisticsTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("lossesInComingOutRoll cannot be negative");
 
-        new GameStatistics(NUMBER_OF_WINS, NUMBER_OF_LOSSES, LONGEST_PLAYED_GAME, ROLLS_MADE, WINS_IN_COMMING_OUT_ROLL,
+        new GameStatistics(NUMBER_OF_WINS, NUMBER_OF_LOSSES, LONGEST_PLAYED_GAME, ROLLS_MADE, WINS_IN_COMING_OUT_ROLL,
                 -1);
 
     }
@@ -138,8 +138,8 @@ public class GameStatisticsTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("losses and wins are equal to zero simultaneously");
 
-        new GameStatistics(0, 0, LONGEST_PLAYED_GAME, ROLLS_MADE, WINS_IN_COMMING_OUT_ROLL,
-                LOSSES_IN_COMMING_OUT_ROLL);
+        new GameStatistics(0, 0, LONGEST_PLAYED_GAME, ROLLS_MADE, WINS_IN_COMING_OUT_ROLL,
+                LOSSES_IN_COMING_OUT_ROLL);
 
     }
 
@@ -149,8 +149,8 @@ public class GameStatisticsTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("longestPlayedGame play must be at least one");
 
-        new GameStatistics(NUMBER_OF_WINS, NUMBER_OF_LOSSES, 0, ROLLS_MADE, WINS_IN_COMMING_OUT_ROLL,
-                LOSSES_IN_COMMING_OUT_ROLL);
+        new GameStatistics(NUMBER_OF_WINS, NUMBER_OF_LOSSES, 0, ROLLS_MADE, WINS_IN_COMING_OUT_ROLL,
+                LOSSES_IN_COMING_OUT_ROLL);
     }
 
     @Test
@@ -159,7 +159,7 @@ public class GameStatisticsTest {
         thrown.expectMessage("winsInComingOutRoll must be minor than wins");
 
         new GameStatistics(NUMBER_OF_WINS, NUMBER_OF_LOSSES, LONGEST_PLAYED_GAME, ROLLS_MADE, NUMBER_OF_WINS + 1,
-                LOSSES_IN_COMMING_OUT_ROLL);
+                LOSSES_IN_COMING_OUT_ROLL);
     }
 
     @Test
