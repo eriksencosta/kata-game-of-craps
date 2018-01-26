@@ -3,7 +3,7 @@ package gameofcraps;
 public class CrapsGame {
     private Dice pairOfDice;
     private boolean won;
-    private int numRolls;
+    private int numberOfRolls;
 
 
     public CrapsGame(Dice customDice) {
@@ -15,13 +15,13 @@ public class CrapsGame {
     }
 
     public void reset() {
-        numRolls = 0;
+        numberOfRolls = 0;
         won = false;
     }
 
     public void play() {
         pairOfDice.roll();
-        numRolls = 1;
+        numberOfRolls = 1;
         int firstRoll;
 
         int diceResult = pairOfDice.getSumOfFaces();
@@ -39,7 +39,7 @@ public class CrapsGame {
 
         do {
             pairOfDice.roll();
-            numRolls ++;
+            numberOfRolls++;
             diceResult = pairOfDice.getSumOfFaces();
 
         } while (diceResult != 7 && diceResult != firstRoll);
@@ -52,8 +52,8 @@ public class CrapsGame {
         return won;
     }
 
-    public int getNumRolls() {
-        return numRolls;
+    public int getNumberOfRolls() {
+        return numberOfRolls;
     }
 
 

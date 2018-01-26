@@ -23,11 +23,11 @@ public class GameStatistics {
         }
 
         if (winsInComingOutRoll < 0) {
-            throw new IllegalArgumentException("wins in coming out roll cannot be negative");
+            throw new IllegalArgumentException("winsInComingOutRoll cannot be negative");
         }
 
         if (lossesInComingOutRoll < 0) {
-            throw new IllegalArgumentException("losses in coming out roll cannot be negative");
+            throw new IllegalArgumentException("lossesInComingOutRoll cannot be negative");
         }
 
         if (wins == 0 && losses == 0) {
@@ -43,7 +43,7 @@ public class GameStatistics {
         }
 
         if (lossesInComingOutRoll > losses) {
-            throw  new IllegalArgumentException("lossesInComingOutRoll must be minor than losses");
+            throw new IllegalArgumentException("lossesInComingOutRoll must be minor than losses");
         }
 
         this.wins = wins;

@@ -15,8 +15,10 @@ public class PlayCraps {
         System.out.println("Winning probability games: " + gameStatistics.winningProbability());
         System.out.println("Rolls per game: " + gameStatistics.rollsPerGame());
         System.out.println("Longest played game: " + gameStatistics.longestPlayedGame());
-        System.out.println("Winning probability in comming roll out: " + gameStatistics.winningProbabilityInComingOutRoll());
-        System.out.println("Lose probbility in comming roll out: " + gameStatistics.lossesProbabilityInComingOutRoll());
+        System.out.println("Winning probability in coming roll out: " +
+                gameStatistics.winningProbabilityInComingOutRoll());
+
+        System.out.println("Lose probability in coming roll out: " + gameStatistics.lossesProbabilityInComingOutRoll());
     }
 
     public static GameStatistics play(int numGames) {
@@ -38,20 +40,19 @@ public class PlayCraps {
             game.play();
             if (game.getWin()) {
                 wins++;
-            }
-            else {
+            } else {
                 losses++;
             }
-            if (game.getNumRolls() > longestPlayedGame) {
-                longestPlayedGame = game.getNumRolls();
+            if (game.getNumberOfRolls() > longestPlayedGame) {
+                longestPlayedGame = game.getNumberOfRolls();
             }
-            rollsMade += game.getNumRolls();
+            rollsMade += game.getNumberOfRolls();
 
 
-            if (game.getNumRolls() == 1 && game.getWin()) {
+            if (game.getNumberOfRolls() == 1 && game.getWin()) {
                 winsComingOutRoll++;
             }
-            if (game.getNumRolls() == 1 && !game.getWin()) {
+            if (game.getNumberOfRolls() == 1 && !game.getWin()) {
                 lossesInComingOutRoll++;
             }
         }

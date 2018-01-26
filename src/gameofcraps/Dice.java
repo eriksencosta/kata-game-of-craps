@@ -8,7 +8,8 @@ public class Dice {
         return (int) (6 * Math.random() + 1);
     }
 
-    public Dice() {}
+    public Dice() {
+    }
 
     public int getSumOfFaces() {
         return face1 + face2;

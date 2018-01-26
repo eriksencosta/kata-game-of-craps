@@ -1,6 +1,7 @@
 package gameofcraps;
 
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 
@@ -13,7 +14,7 @@ public class CrapsGameTest {
         game.play();
 
         assertTrue(game.getWin());
-        assertEquals(game.getNumRolls(), 1);
+        assertEquals(game.getNumberOfRolls(), 1);
     }
 
     @Test
@@ -23,7 +24,7 @@ public class CrapsGameTest {
         game.play();
 
         assertTrue(game.getWin());
-        assertEquals(game.getNumRolls(), 1);
+        assertEquals(game.getNumberOfRolls(), 1);
     }
 
     @Test
@@ -33,7 +34,7 @@ public class CrapsGameTest {
         game.play();
 
         assertFalse(game.getWin());
-        assertEquals(game.getNumRolls(), 1);
+        assertEquals(game.getNumberOfRolls(), 1);
     }
 
     @Test
@@ -43,7 +44,7 @@ public class CrapsGameTest {
         game.play();
 
         assertFalse(game.getWin());
-        assertEquals(game.getNumRolls(), 1);
+        assertEquals(game.getNumberOfRolls(), 1);
     }
 
     @Test
@@ -53,7 +54,7 @@ public class CrapsGameTest {
         game.play();
 
         assertFalse(game.getWin());
-        assertEquals(game.getNumRolls(), 1);
+        assertEquals(game.getNumberOfRolls(), 1);
     }
 
     @Test
@@ -64,7 +65,7 @@ public class CrapsGameTest {
         game.reset();
 
         assertFalse(game.getWin());
-        assertEquals(game.getNumRolls(), 0);
+        assertEquals(game.getNumberOfRolls(), 0);
     }
 
 }

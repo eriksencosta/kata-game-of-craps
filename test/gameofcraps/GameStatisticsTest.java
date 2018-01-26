@@ -25,7 +25,6 @@ public class GameStatisticsTest {
     private static final double TOLERANCE = 1e-6;
 
 
-
     @Before
     public void createGameStatistics() {
         stats = new GameStatistics(NUMBER_OF_WINS, NUMBER_OF_LOSSES, LONGEST_PLAYED_GAME, ROLLS_MADE,
@@ -107,7 +106,7 @@ public class GameStatisticsTest {
         thrown.expectMessage("losses cannot be negative");
 
         new GameStatistics(NUMBER_OF_WINS, -1, LONGEST_PLAYED_GAME, ROLLS_MADE, WINS_IN_COMMING_OUT_ROLL,
-                    LOSSES_IN_COMMING_OUT_ROLL);
+                LOSSES_IN_COMMING_OUT_ROLL);
 
     }
 
@@ -143,7 +142,7 @@ public class GameStatisticsTest {
                 LOSSES_IN_COMMING_OUT_ROLL);
 
     }
-    
+
     @Test
     public void creatingGameStatisticsThrowsExceptionWhenLongestPlayedGameIsLessThanOne() {
 

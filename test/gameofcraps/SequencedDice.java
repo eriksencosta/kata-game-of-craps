@@ -7,7 +7,7 @@ public class SequencedDice extends Dice {
     private final List<Integer> sequencedResults;
     private int rolls = -1;
 
-    SequencedDice(Integer ...results) {
+    SequencedDice(Integer... results) {
         sequencedResults = Arrays.asList(results);
     }
 

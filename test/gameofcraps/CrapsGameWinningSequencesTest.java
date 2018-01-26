@@ -20,19 +20,19 @@ public class CrapsGameWinningSequencesTest {
     @Parameterized.Parameters
 
     public static Collection<Object[]> winningSequencedDices() {
-        return Arrays.asList(new Object[][] {
-                { new SequencedDice(4, 4), 2 },
-                { new SequencedDice(4, 5, 4), 3 },
-                { new SequencedDice(4, 5, 6, 4), 4 },
-                { new SequencedDice(10, 10), 2 },
-                { new SequencedDice(10, 9, 10), 3 },
-                { new SequencedDice(10, 9, 5, 10), 4 },
-                { new SequencedDice(10, 9, 5, 9, 10), 5 },
-                { new SequencedDice(4, 2, 4), 3 },
-                { new SequencedDice(4, 3, 4), 3 },
-                { new SequencedDice(4, 12, 4), 3 },
-                { new SequencedDice(4, 5, 6, 8, 9, 10, 5, 6, 8, 9, 5, 6, 8,
-                        9, 5, 6, 8, 9, 5, 6, 8, 9, 5, 6, 8, 9, 5, 6, 8, 9, 5, 6, 8, 9, 5, 6, 8, 9, 4), 39 }
+        return Arrays.asList(new Object[][]{
+                {new SequencedDice(4, 4), 2},
+                {new SequencedDice(4, 5, 4), 3},
+                {new SequencedDice(4, 5, 6, 4), 4},
+                {new SequencedDice(10, 10), 2},
+                {new SequencedDice(10, 9, 10), 3},
+                {new SequencedDice(10, 9, 5, 10), 4},
+                {new SequencedDice(10, 9, 5, 9, 10), 5},
+                {new SequencedDice(4, 2, 4), 3},
+                {new SequencedDice(4, 3, 4), 3},
+                {new SequencedDice(4, 12, 4), 3},
+                {new SequencedDice(4, 5, 6, 8, 9, 10, 5, 6, 8, 9, 5, 6, 8,
+                        9, 5, 6, 8, 9, 5, 6, 8, 9, 5, 6, 8, 9, 5, 6, 8, 9, 5, 6, 8, 9, 5, 6, 8, 9, 4), 39}
         });
     }
 
@@ -48,7 +48,7 @@ public class CrapsGameWinningSequencesTest {
         game.play();
 
         assertTrue(game.getWin());
-        assertEquals(game.getNumRolls(), this.nummberOfRolls);
+        assertEquals(game.getNumberOfRolls(), this.nummberOfRolls);
     }
 
 }
