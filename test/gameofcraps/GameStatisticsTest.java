@@ -114,7 +114,7 @@ public class GameStatisticsTest {
     public void creatingGameStatisticsThrowsExceptionWhenWinsInComingOutRollIsNegativeOnInstantiation() {
 
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("wins in coming out roll cannot be negative");
+        thrown.expectMessage("winsInComingOutRoll cannot be negative");
 
         new GameStatistics(NUMBER_OF_WINS, NUMBER_OF_LOSSES, LONGEST_PLAYED_GAME, ROLLS_MADE, -1,
                 LOSSES_IN_COMMING_OUT_ROLL);
@@ -125,7 +125,7 @@ public class GameStatisticsTest {
     public void creatingGameStatisticsThrowsExceptionWhenLossesInComingOutRollIsNegativeOnInstantiation() {
 
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("losses in coming out roll cannot be negative");
+        thrown.expectMessage("lossesInComingOutRoll cannot be negative");
 
         new GameStatistics(NUMBER_OF_WINS, NUMBER_OF_LOSSES, LONGEST_PLAYED_GAME, ROLLS_MADE, WINS_IN_COMMING_OUT_ROLL,
                 -1);

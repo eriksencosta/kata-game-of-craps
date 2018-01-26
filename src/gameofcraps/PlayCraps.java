@@ -21,10 +21,10 @@ public class PlayCraps {
         System.out.println("Lose probability in coming roll out: " + gameStatistics.lossesProbabilityInComingOutRoll());
     }
 
-    public static GameStatistics play(int numGames) {
+    public static GameStatistics play(int numberOfGames) {
 
-        if (numGames < 1) {
-            throw new IllegalArgumentException("numGames must be at least one");
+        if (numberOfGames < 1) {
+            throw new IllegalArgumentException("numberOfGames must be at least one");
         }
 
         CrapsGame game = new CrapsGame();
@@ -36,7 +36,7 @@ public class PlayCraps {
         int winsComingOutRoll = 0;
         int lossesInComingOutRoll = 0;
 
-        for (int i = 1; i <= numGames; i++) {
+        for (int i = 1; i <= numberOfGames; i++) {
             game.play();
             if (game.getWin()) {
                 wins++;
