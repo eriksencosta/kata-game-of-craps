@@ -49,8 +49,8 @@ public class CrapsGameLosingSequencesTest {
 
         game.play();
 
-        assertFalse(game.getWin());
-        assertEquals(game.getNumberOfRolls(), this.numberOfRolls);
+        assertFalse(game.win());
+        assertEquals(game.numberOfRolls(), this.numberOfRolls);
     }
 
 }

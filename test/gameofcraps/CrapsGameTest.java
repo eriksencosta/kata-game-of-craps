@@ -13,8 +13,8 @@ public class CrapsGameTest {
 
         game.play();
 
-        assertTrue(game.getWin());
-        assertEquals(game.getNumberOfRolls(), 1);
+        assertTrue(game.win());
+        assertEquals(game.numberOfRolls(), 1);
     }
 
     @Test
@@ -23,8 +23,8 @@ public class CrapsGameTest {
 
         game.play();
 
-        assertTrue(game.getWin());
-        assertEquals(game.getNumberOfRolls(), 1);
+        assertTrue(game.win());
+        assertEquals(game.numberOfRolls(), 1);
     }
 
     @Test
@@ -33,8 +33,8 @@ public class CrapsGameTest {
 
         game.play();
 
-        assertFalse(game.getWin());
-        assertEquals(game.getNumberOfRolls(), 1);
+        assertFalse(game.win());
+        assertEquals(game.numberOfRolls(), 1);
     }
 
     @Test
@@ -43,8 +43,8 @@ public class CrapsGameTest {
 
         game.play();
 
-        assertFalse(game.getWin());
-        assertEquals(game.getNumberOfRolls(), 1);
+        assertFalse(game.win());
+        assertEquals(game.numberOfRolls(), 1);
     }
 
     @Test
@@ -53,8 +53,8 @@ public class CrapsGameTest {
 
         game.play();
 
-        assertFalse(game.getWin());
-        assertEquals(game.getNumberOfRolls(), 1);
+        assertFalse(game.win());
+        assertEquals(game.numberOfRolls(), 1);
     }
 
     @Test
@@ -64,8 +64,8 @@ public class CrapsGameTest {
         game.play();
         game.reset();
 
-        assertFalse(game.getWin());
-        assertEquals(game.getNumberOfRolls(), 0);
+        assertFalse(game.win());
+        assertEquals(game.numberOfRolls(), 0);
     }
 
 }

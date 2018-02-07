@@ -6,8 +6,8 @@ public class CrapsGame {
     private int numberOfRolls;
 
 
-    public CrapsGame(Dice customDice) {
-        pairOfDice = customDice;
+    public CrapsGame(Dice dice) {
+        pairOfDice = dice;
     }
 
     public CrapsGame() {
@@ -24,7 +24,7 @@ public class CrapsGame {
         numberOfRolls = 1;
         int firstRoll;
 
-        int diceResult = pairOfDice.getSumOfFaces();
+        int diceResult = pairOfDice.sumOfFaces();
 
         if (diceResult == 7 || diceResult == 11) {
             won = true;
@@ -40,7 +40,7 @@ public class CrapsGame {
         do {
             pairOfDice.roll();
             numberOfRolls++;
-            diceResult = pairOfDice.getSumOfFaces();
+            diceResult = pairOfDice.sumOfFaces();
 
         } while (diceResult != 7 && diceResult != firstRoll);
 
@@ -48,11 +48,11 @@ public class CrapsGame {
 
     }
 
-    public boolean getWin() {
+    public boolean win() {
         return won;
     }
 
-    public int getNumberOfRolls() {
+    public int numberOfRolls() {
         return numberOfRolls;
     }
 

@@ -9,7 +9,7 @@ public class DeterministicDice extends Dice {
     }
 
     @Override
-    public int getSumOfFaces() {
+    public int sumOfFaces() {
         return result;
     }
 

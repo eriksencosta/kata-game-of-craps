@@ -31,21 +31,21 @@ public class PlayCraps {
 
         for (int i = 1; i <= numberOfGames; i++) {
             game.play();
-            if (game.getWin()) {
+            if (game.win()) {
                 wins++;
             } else {
                 losses++;
             }
-            if (game.getNumberOfRolls() > longestPlayedGame) {
-                longestPlayedGame = game.getNumberOfRolls();
+            if (game.numberOfRolls() > longestPlayedGame) {
+                longestPlayedGame = game.numberOfRolls();
             }
-            rollsMade += game.getNumberOfRolls();
+            rollsMade += game.numberOfRolls();
 
 
-            if (game.getNumberOfRolls() == 1 && game.getWin()) {
+            if (game.numberOfRolls() == 1 && game.win()) {
                 winsComingOutRoll++;
             }
-            if (game.getNumberOfRolls() == 1 && !game.getWin()) {
+            if (game.numberOfRolls() == 1 && !game.win()) {
                 lossesInComingOutRoll++;
             }
         }

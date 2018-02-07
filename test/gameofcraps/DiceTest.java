@@ -13,7 +13,7 @@ public class DiceTest {
 
         for (int i = 0; i < 100; i++) {
             dice.roll();
-            int roll = dice.getSumOfFaces();
+            int roll = dice.sumOfFaces();
             assertThat(roll, allOf(greaterThanOrEqualTo(2), lessThanOrEqualTo(12)));
         }
 

@@ -12,7 +12,7 @@ public class SequencedDice extends Dice {
     }
 
     @Override
-    public int getSumOfFaces() {
+    public int sumOfFaces() {
         return sequencedResults.get(rolls);
     }
 
