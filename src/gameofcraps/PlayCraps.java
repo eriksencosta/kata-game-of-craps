@@ -1,10 +1,17 @@
 package gameofcraps;
 
 public class PlayCraps {
+
+    private static CrapsGame game;
+
     public static void main(String[] args) {
 
         int numberOfGames;
         printGreeting();
+
+        if(PlayCraps.game == null) {
+            PlayCraps.game = new CrapsGame();
+        }
 
         numberOfGames = tryParseStringToInteger(args[0]);
 
@@ -12,6 +19,15 @@ public class PlayCraps {
 
         printGameStatistics(gameStatistics);
 
+        resetGame();
+    }
+
+    public static void configureCrapsGame(CrapsGame game) {
+        PlayCraps.game = game;
+    }
+
+    public static void resetGame() {
+        PlayCraps.game = null;
     }
 
     public static GameStatistics play(int numberOfGames) {
@@ -20,7 +36,7 @@ public class PlayCraps {
             throw new IllegalArgumentException("numberOfGames must be at least one");
         }
 
-        CrapsGame game = new CrapsGame();
+        CrapsGame game = PlayCraps.game;
 
         int wins = 0;
         int losses = 0;

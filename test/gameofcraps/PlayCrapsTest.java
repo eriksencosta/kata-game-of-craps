@@ -19,6 +19,7 @@ public class PlayCrapsTest {
     public void playingCrapsGeneratesGameStatistics() {
         final int numberOfGames = 1;
         PlayCraps playing = new PlayCraps();
+        playing.configureCrapsGame(new CrapsGame());
 
         GameStatistics statistics = playing.play(numberOfGames);
 
@@ -35,6 +36,7 @@ public class PlayCrapsTest {
 
         final int numberOfGames = -1;
         PlayCraps playing = new PlayCraps();
+        playing.configureCrapsGame(new CrapsGame());
 
         playing.play(numberOfGames);
     }
@@ -81,6 +83,7 @@ public class PlayCrapsTest {
         System.setOut(printStream);
         final int numberOfGames = 1;
         PlayCraps playing = new PlayCraps();
+        playing.configureCrapsGame(new CrapsGame());
 
         GameStatistics statistics = playing.play(numberOfGames);
         PlayCraps.printGameStatistics(statistics);
@@ -92,6 +95,29 @@ public class PlayCrapsTest {
                 containsString("Longest played game: "),
                 containsString("Winning probability in coming roll out: "),
                 containsString("Lose probability in coming roll out: ")));
+
+        PrintStream originalOutput = System.out;
+        System.setOut(originalOutput);
+    }
+
+    @Test
+    public void checkPrintedGameStatisticsContainsExpectedValues() {
+        OutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+        final int numberOfGames = 10;
+        PlayCraps playing = new PlayCraps();
+        playing.configureCrapsGame(new FixedCrapsGame(true, 10));
+
+        GameStatistics statistics = playing.play(numberOfGames);
+        PlayCraps.printGameStatistics(statistics);
+        assertThat(outputStream.toString(), allOf(
+                containsString("Played games: " + numberOfGames),
+                containsString("Winning probability games: " + 1.0),
+                containsString("Rolls per game: " + 10.0),
+                containsString("Longest played game: " + 10.0),
+                containsString("Winning probability in coming roll out: " + 0.0),
+                containsString("Lose probability in coming roll out: " + 0.0)));
 
         PrintStream originalOutput = System.out;
         System.setOut(originalOutput);
