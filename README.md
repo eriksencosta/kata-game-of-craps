@@ -42,6 +42,10 @@ After building the project, run:
     $ java -cp build/classes/main gameofcraps.PlayCraps 1000
 
 
+## Acknowledgments
+
+The Game of Craps exercise was recommended by [@nelsonsar](https://github.com/nelsonsar), which is the person to go for everything related to TDD.
+
 [#game-craps-definition]: docs/game-craps.pdf
 [#pragmatic-unit-testing-good-reads]: https://www.goodreads.com/book/show/23333089-pragmatic-unit-testing-in-java-8-with-junit
 [#tim-pope-commit-messages]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
